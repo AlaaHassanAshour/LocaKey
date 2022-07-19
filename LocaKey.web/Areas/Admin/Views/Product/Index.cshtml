@@ -1,0 +1,194 @@
+﻿@model IEnumerable<LocaKey.Core.ViweModel.ProductVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <form method="get" asp-action="Index">
+        <div class="row">
+        <div class="col-md-1">
+            
+            <input  type="number" name="count" value="@ViewBag.count" class="form-control" />
+        </div>  
+    <div class="col-md-5">
+
+        <select name="categoryId" asp-items="@ViewBag.productId" class="form-control">
+            <option selected="selected" value="">--Select--</option>
+        </select>
+    </div>
+   
+    <div class="col-md-2">
+        <input class="btn btn-bg-primary" type="submit" value="Go" />
+    </div>
+   </div>
+    </form>
+
+<br />
+<br />
+@if (Model.Any())
+{
+    <div class="card card-custom gutter-b">
+        <div class="card-header">
+            <div class="card-title">
+                <h3 class="card-label">
+                    المنتجات
+                  <small>ادارة المنتجات</small>
+                </h3>
+            </div>
+            <div class="card-toolbar">
+                <a asp-action="Create" class="btn btn-success showcreate" data-toggle="modal">
+                    <i class="flaticon2-cube"></i> اضافة منتج
+                </a>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="card-body">
+
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Id)
+                        </th>
+                        <th>
+                            التصنيف
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.name_ar)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.name_en)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.name_fr)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.description_ar)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.description_en)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.description_fr)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.price_ar)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.price_en)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.price_fr)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.imege)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.count)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Category.name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.name_ar)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.name_en)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.name_fr)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.description_ar)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.description_en)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.description_fr)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.price_ar)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.price_en)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.price_fr)
+                            </td>
+                            <td>
+                                <img src="~/Images/@item.imege" width="150" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.count)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id" type="submit" class="btn btn-warning editDetails" data-id="@item.Id" data-toggle="modal">
+                                    <i class="flaticon flaticon-edit"></i>
+                                    تعديل 
+                                </a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id" type="submit" class="btn btn-danger deletemodal" data-id="@item.Id" data-toggle="modal">
+                                    <i class="flaticon flaticon-delete"></i>
+                                    حذف
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+}
+else
+{
+    <div class="card-toolbar">
+        <a asp-action="Create" class="btn btn-success showcreate" data-toggle="modal">
+            <i class="flaticon2-cube"></i> Create  product
+        </a>
+    </div>
+    <hr />
+    <hr />
+
+    <div class="alert alert-warning">
+
+        No Data !!
+    </div>
+
+}
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog-centered modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-light justify-content-center">
+                <h5 class="modal-title"></h5>
+            </div>
+            <div class="modal-body justify-content-center" id="myModalContent">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" style="width:20%" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

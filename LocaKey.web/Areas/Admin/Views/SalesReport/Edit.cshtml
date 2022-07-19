@@ -1,0 +1,72 @@
+﻿
+@model LocaKey.Core.ViweModel.SalesReportVM
+
+
+<h4>Category</h4>
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label">
+               ADD Category
+                <small>Manege Add nwe SalesReport</small>
+            </h3>
+        </div>
+      
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                          <input type="hidden" asp-for="Id" /> 
+                        <label asp-for="priceWitheBuying" class="control-label"></label>
+                        <input asp-for="priceWitheBuying" class="form-control" />
+                        <span asp-validation-for="priceWitheBuying" class="text-danger"></span>
+                    </div>
+                </div>
+                 <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="productBuying" class="control-label"></label>
+                        <input asp-for="productBuying" class="form-control" />
+                        <span asp-validation-for="productBuying" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="basePrice" class="control-label"></label>
+                        <input asp-for="basePrice" class="form-control" />
+                        <span asp-validation-for="basePrice" class="text-danger"></span>
+                    </div>
+                </div>
+                 <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="count" class="control-label"></label>
+                        <input asp-for="count" class="form-control" />
+                        <span asp-validation-for="count" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="total" class="control-label"></label>
+                        <input asp-for="total" class="form-control" />
+                        <span asp-validation-for="total" class="text-danger"></span>
+                    </div>
+                </div>
+                
+            </div>
+           <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

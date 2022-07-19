@@ -1,0 +1,127 @@
+﻿@model LocaKey.Core.DTO.ProductDTO
+
+
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label">
+            اضافة منتج
+                <small>ادارة اضافة منتج</small>
+            </h3>
+        </div>
+
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="CategoryId" class="control-label"></label>
+                        <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.productId"></select>
+
+                        <span asp-validation-for="name_en" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="imege" class="control-label"></label>
+                        <input  type="file" asp-for="imege" class="form-control" />
+                        <span asp-validation-for="imege" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="name_ar" class="control-label"></label>
+                        <input asp-for="name_ar" class="form-control" />
+                        <span asp-validation-for="name_ar" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="name_en" class="control-label"></label>
+                        <input asp-for="name_en" class="form-control" />
+                        <span asp-validation-for="name_en" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="name_fr" class="control-label"></label>
+                        <input asp-for="name_fr" class="form-control" />
+                        <span asp-validation-for="name_fr" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="description_ar" class="control-label"></label>
+                         <textarea id="summernote" asp-for="description_ar" class="form-control"></textarea>
+                        <span asp-validation-for="description_ar" class="text-danger"></span>
+                    
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="description_en" class="control-label"></label>
+                        <textarea id="summernote" asp-for="description_en" class="form-control"></textarea>
+                       <span asp-validation-for="description_en" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="description_fr" class="control-label"></label>
+                         <textarea id="summernote" asp-for="description_fr" class="form-control"></textarea>
+                        <span asp-validation-for="description_fr" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="price_ar" class="control-label"></label>
+                        <input asp-for="price_ar" class="form-control" />
+                        <span asp-validation-for="price_ar" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="price_en" class="control-label"></label>
+                        <input asp-for="price_en" class="form-control" />
+                        <span asp-validation-for="price_en" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+    
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="price_fr" class="control-label"></label>
+                    <input asp-for="price_fr" class="form-control" />
+                    <span asp-validation-for="price_fr" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="count" class="control-label"></label>
+                    <input asp-for="count" class="form-control" />
+                    <span asp-validation-for="count" class="text-danger"></span>
+                </div>
+            </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="حفظ" class="btn btn-primary" />
+            </div>
+            
+    </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">للخلف</a>
+    </div>
