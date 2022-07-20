@@ -6,14 +6,14 @@
 
     <form method="get" asp-action="Index">
         <div class="row">
-        <div class="col-md-1">
+        <div class="col-md-2">
             
-            <input  type="number" name="count" value="@ViewBag.count" class="form-control" />
+            <input  type="number" name="count" value="@ViewBag.count" placeholder="اختر الكمية" class="form-control" />
         </div>  
     <div class="col-md-5">
 
-        <select name="categoryId" asp-items="@ViewBag.productId" class="form-control">
-            <option selected="selected" value="">--Select--</option>
+        <select name="categoryId" asp-items="@ViewBag.categoryId" class="form-control">
+            <option selected="selected" value="">--كل المنتجات--</option>
         </select>
     </div>
    
@@ -102,7 +102,7 @@
                                 @Html.DisplayFor(modelItem => item.Id)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Category.name)
+                                @Html.DisplayFor(modelItem => item.Category.nameAr)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.name_ar)
@@ -163,7 +163,7 @@ else
 {
     <div class="card-toolbar">
         <a asp-action="Create" class="btn btn-success showcreate" data-toggle="modal">
-            <i class="flaticon2-cube"></i> Create  product
+            <i class="flaticon2-cube"></i> اضافة منتج
         </a>
     </div>
     <hr />

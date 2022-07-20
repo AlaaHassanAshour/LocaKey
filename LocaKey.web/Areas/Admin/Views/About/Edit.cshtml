@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Edit";
- 
+
 }
 
 
@@ -12,32 +12,42 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <input type="hidden" asp-for="Id" /> 
+                <input type="hidden" asp-for="Id" />
                 <label asp-for="name" class="control-label"></label>
                 <input asp-for="name" class="form-control" />
                 <span asp-validation-for="name" class="text-danger"></span>
             </div>
-             <div class="form-group">
+            <div class="form-group">
                 <label asp-for="email" class="control-label"></label>
                 <input asp-for="email" class="form-control" />
                 <span asp-validation-for="email" class="text-danger"></span>
             </div>
- <div class="form-group">
-                <label asp-for="description" class="control-label"></label>
-                <input asp-for="description" class="form-control" />
-                <span asp-validation-for="description" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="descriptionAr" class="control-label"></label>
+                <input asp-for="descriptionAr" class="form-control" />
+                <span asp-validation-for="descriptionAr" class="text-danger"></span>
             </div>
- <div class="form-group">
+            <div class="form-group">
+                <label asp-for="descriptionFr" class="control-label"></label>
+                <input asp-for="descriptionFr" class="form-control" />
+                <span asp-validation-for="descriptionFr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descriptionEn" class="control-label"></label>
+                <input asp-for="descriptionEn" class="form-control" />
+                <span asp-validation-for="descriptionEn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="phone" class="control-label"></label>
                 <input asp-for="phone" class="form-control" />
                 <span asp-validation-for="phone" class="text-danger"></span>
             </div>
- <div class="form-group">
+            <div class="form-group">
                 <label asp-for="logo" class="control-label"></label>
                 <input asp-for="logo" class="form-control" />
                 <span asp-validation-for="logo" class="text-danger"></span>
             </div>
-             <div class="form-group">
+            <div class="form-group">
                 <label asp-for="title" class="control-label"></label>
                 <input asp-for="title" class="form-control" />
                 <span asp-validation-for="title" class="text-danger"></span>
@@ -52,6 +62,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">الرجوع للخلف</a>
 </div>
 

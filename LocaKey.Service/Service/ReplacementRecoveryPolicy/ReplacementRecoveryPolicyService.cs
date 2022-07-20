@@ -23,8 +23,12 @@ namespace LocaKey.Service.Service.ReplacementRecoveryPolicy
             var ReplacementRecoveryPolicyVM = _context.ReplacementRecoveryPolicy.Select(x => new ReplacementRecoveryPolicyVM()
             {
                 Id = x.Id,
-                name = x.name,
-                description = x.description,
+                nameAr = x.nameAr,
+                nameEn= x.nameEn,
+                nameFr= x.nameFr,
+                descriptionAr = x.descriptionAr,
+                descriptionEn= x.descriptionEn,
+                descriptionFr= x.descriptionFr,
                 IpAddress = x.IpAddress,
                 MacAddress=x.MacAddress
             }).FirstOrDefault(x => x.Id == id);
@@ -35,8 +39,12 @@ namespace LocaKey.Service.Service.ReplacementRecoveryPolicy
             var ReplacementRecoveryPolicyVM = _context.ReplacementRecoveryPolicy.Where(x => x.IsDelete.Equals(false)).OrderByDescending(x => x.Id).Select(x => new ReplacementRecoveryPolicyVM()
             {
                 Id = x.Id,
-                name = x.name,
-                description = x.description,
+                nameAr = x.nameAr,
+                nameEn = x.nameEn,
+                nameFr = x.nameFr,
+                descriptionAr = x.descriptionAr,
+                descriptionEn = x.descriptionEn,
+                descriptionFr = x.descriptionFr,
                 IpAddress = x.IpAddress,
                 MacAddress = x.MacAddress
             }).ToList();
@@ -47,8 +55,12 @@ namespace LocaKey.Service.Service.ReplacementRecoveryPolicy
         {
 
             var ReplacementRecoveryPolicy = new LocaKey.Data.Entity.ReplacementRecoveryPolicy();
-            ReplacementRecoveryPolicy.name = dto.name;
-            ReplacementRecoveryPolicy.description = dto.description;
+            ReplacementRecoveryPolicy.descriptionAr = dto.descriptionAr;
+            ReplacementRecoveryPolicy.descriptionEn = dto.descriptionEn;
+            ReplacementRecoveryPolicy.descriptionFr = dto.descriptionFr;
+            ReplacementRecoveryPolicy.nameFr = dto.nameFr;
+            ReplacementRecoveryPolicy.nameAr= dto.nameAr;
+            ReplacementRecoveryPolicy.nameEn= dto.nameEn;
             ReplacementRecoveryPolicy.IpAddress = dto.IpAddress;
             ReplacementRecoveryPolicy.MacAddress = dto.MacAddress;
 
@@ -69,8 +81,12 @@ namespace LocaKey.Service.Service.ReplacementRecoveryPolicy
         public void Update(ReplacementRecoveryPolicyDTO dto)
         {
             var ReplacementRecoveryPolicy = _context.ReplacementRecoveryPolicy.SingleOrDefault(x => x.Id == dto.Id && !x.IsDelete);
-            ReplacementRecoveryPolicy.name = dto.name;
-            ReplacementRecoveryPolicy.description = dto.description;
+            ReplacementRecoveryPolicy.descriptionAr = dto.descriptionAr;
+            ReplacementRecoveryPolicy.descriptionEn = dto.descriptionEn;
+            ReplacementRecoveryPolicy.descriptionFr = dto.descriptionFr;
+            ReplacementRecoveryPolicy.nameFr = dto.nameFr;
+            ReplacementRecoveryPolicy.nameAr = dto.nameAr;
+            ReplacementRecoveryPolicy.nameEn = dto.nameEn;
             ReplacementRecoveryPolicy.IpAddress = dto.IpAddress;
             ReplacementRecoveryPolicy.MacAddress = dto.MacAddress;
             _context.ReplacementRecoveryPolicy.Update(ReplacementRecoveryPolicy);

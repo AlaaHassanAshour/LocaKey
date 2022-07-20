@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using LocaKey.Core.ViweModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LocaKey.web.Areas.Admin.Controllers
@@ -9,6 +10,10 @@ namespace LocaKey.web.Areas.Admin.Controllers
     {
         public IActionResult Index()
         {
+            var dashbord = new DashabordVM()
+            {
+
+            };
             return View();
         }
     }

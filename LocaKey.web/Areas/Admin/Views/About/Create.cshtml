@@ -5,8 +5,8 @@
     <div class="card-header">
         <div class="card-title">
             <h3 class="About-label">
-                ADD Category
-                <small>Manege Add nwe About</small>
+               اضافة
+                <small>ادارة الاعدادات</small>
             </h3>
         </div>
 
@@ -31,45 +31,61 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label asp-for="description" class="control-label"></label>
-                        <input asp-for="description" class="form-control" />
-                        <span asp-validation-for="description" class="text-danger"></span>
+                        <label asp-for="descriptionAr" class="control-label"></label>
+                        <input asp-for="descriptionAr" class="form-control" />
+                        <span asp-validation-for="descriptionAr" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label asp-for="phone" class="control-label"></label>
-                        <input asp-for="phone" class="form-control" />
-                        <span asp-validation-for="phone" class="text-danger"></span>
+                        <label asp-for="descriptionEn" class="control-label"></label>
+                        <input asp-for="descriptionEn" class="form-control" />
+                        <span asp-validation-for="descriptionEn" class="text-danger"></span>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="descriptionFr" class="control-label"></label>
+                        <input asp-for="descriptionFr" class="form-control" />
+                        <span asp-validation-for="descriptionFr" class="text-danger"></span>
+                    </div>
+                </div>
+
             </div>
-              <div class="row">
-                <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="logo" class="control-label"></label>
-                        <input asp-for="logo" class="form-control" />
+                        <input type="file" asp-for="logo" class="form-control" />
                         <span asp-validation-for="logo" class="text-danger"></span>
                     </div>
                 </div>
-             <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="title" class="control-label"></label>
                         <input asp-for="title" class="form-control" />
                         <span asp-validation-for="title" class="text-danger"></span>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="phone" class="control-label"></label>
+                        <input   asp-for="phone" class="form-control" />
+                        <span asp-validation-for="phone" class="text-danger"></span>
+                    </div>
+                </div>
+
             </div>
             <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="حفظ" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">الرجوع الي الخلف</a>
 </div>

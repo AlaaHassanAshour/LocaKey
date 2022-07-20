@@ -9,14 +9,9 @@ namespace LocaKey.Core.DTO
 {
     public class CartCookiesDTO
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         [Display(Name = "الكمية الكلية ")]
         public int total { get; set; }
-        [Display(Name = "الكمية المباعة ")]
-
-        public int quantitySold { get; set; }
-        [Display(Name = "الكمية المتاحة ")]
-        public int availableQuantity { get; set; }
         [Display(Name = "المنتج ")]
         public int ProductId { get; set; }
         [Display(Name = "المشتري")]

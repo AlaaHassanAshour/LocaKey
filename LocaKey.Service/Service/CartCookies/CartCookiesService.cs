@@ -24,9 +24,9 @@ namespace LocaKey.Service.Service.CartCookiest
                     Phone=x.User.PhoneNumber,
                 },
                 Id = x.Id,
-                availableQuantity = x.availableQuantity,
+              
                 ProductId = x.ProductId,
-                quantitySold = x.quantitySold,
+              
                 total = x.total,
               
             }).FirstOrDefault(x => x.Id == id);
@@ -43,9 +43,7 @@ namespace LocaKey.Service.Service.CartCookiest
                     Phone = x.User.PhoneNumber,
                 },
                 Id = x.Id,
-                availableQuantity = x.availableQuantity,
                 ProductId = x.ProductId,
-                quantitySold = x.quantitySold,
                 total = x.total,
             }).ToList();
 
@@ -56,11 +54,10 @@ namespace LocaKey.Service.Service.CartCookiest
            
 
             var cart = new LocaKey.Data.Entity.CartCookies();
-            cart.availableQuantity = dto.availableQuantity;
+     
             cart.ProductId = dto.ProductId;
-            cart.quantitySold = dto.quantitySold;
             cart.total = dto.total;
-            cart.UserId = dto.UserId;
+        
             _context.CartCookies.Add(cart);
             _context.SaveChanges();
         }
@@ -73,13 +70,8 @@ namespace LocaKey.Service.Service.CartCookiest
         }
         public void Update(CartCookiesDTO dto)
         {
-            var cart = _context.CartCookies.SingleOrDefault(x => x.Id == dto.Id && !x.IsDelete);
-            cart.availableQuantity = dto.availableQuantity;
-            cart.ProductId = dto.ProductId;
-            cart.quantitySold = dto.quantitySold;
-            cart.total = dto.total;
-            cart.UserId = dto.UserId;
-            _context.CartCookies.Update(cart);
+          
+         //
             _context.SaveChanges();
         }
     }

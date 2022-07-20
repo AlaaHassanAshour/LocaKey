@@ -27,12 +27,12 @@ namespace LocaKey.web.Areas.Admin.Controllers
         {
          
             ViewBag.count=count;
-            ViewData["productId"] = new SelectList(_categoryService.GetAll(), "Id", "name");
+            ViewData["categoryId"] = new SelectList(_categoryService.GetAll(), "Id", "nameAr");
             return View(_productService.GetAll(categoryId,count));
         }
         public IActionResult Create()
         {
-            ViewData["productId"] = new SelectList(_categoryService.GetAll(), "Id", "name");
+            ViewData["categoryId"] = new SelectList(_categoryService.GetAll(), "Id", "nameAr");
             return View();
         }
         [HttpPost]

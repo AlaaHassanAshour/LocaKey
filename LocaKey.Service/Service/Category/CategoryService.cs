@@ -23,7 +23,9 @@ namespace LocaKey.Service.Service.Category
             var Category = _context.Categorys.Select(x => new CategoryVM()
             {
                 Id = x.Id,
-                name = x.name
+                nameAr = x.nameAr,
+                nameEn= x.nameEn,
+                nameFr= x.nameFr,
             }).FirstOrDefault(x => x.Id == id);
             return Category;
         }
@@ -32,7 +34,9 @@ namespace LocaKey.Service.Service.Category
             var categoriesVm = _context.Categorys.Where(x => x.IsDelete.Equals(false)).OrderByDescending(x => x.Id).Select(x => new CategoryVM()
             {
                 Id = x.Id,
-                name = x.name,
+                nameAr = x.nameAr,
+                nameEn = x.nameEn,
+                nameFr = x.nameFr,
             }).ToList();
 
             return categoriesVm;
@@ -41,7 +45,9 @@ namespace LocaKey.Service.Service.Category
         {
 
             var category = new LocaKey.Data.Entity.Category();
-            category.name = dto.name;
+            category.nameAr = dto.nameAr;
+            category.nameEn = dto.nameEn;
+            category.nameFr= dto.nameFr;
 
             _context.Categorys.Add(category);
             _context.SaveChanges();
@@ -60,7 +66,9 @@ namespace LocaKey.Service.Service.Category
         public void Update(CategoryDTO dto)
         {
             var category = _context.Categorys.SingleOrDefault(x => x.Id == dto.Id && !x.IsDelete);
-            category.name = dto.name;
+            category.nameAr = dto.nameAr;
+            category.nameEn = dto.nameEn;
+            category.nameFr = dto.nameFr;
             _context.Categorys.Update(category);
             _context.SaveChanges();
         }

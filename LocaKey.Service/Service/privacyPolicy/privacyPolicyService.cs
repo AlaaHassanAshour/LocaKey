@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LocaKey.Service.Service.privacyPolicy
 {
-    public class privacyPolicyService: IprivacyPolicyService
+    public class privacyPolicyService : IprivacyPolicyService
     {
         private ApplicationDbContext _context;
 
@@ -23,8 +23,12 @@ namespace LocaKey.Service.Service.privacyPolicy
             var privacyPolicy = _context.privacyPolicy.Select(x => new privacyPolicyVM()
             {
                 Id = x.Id,
-                name = x.name,
-                description=x.description
+                nameAr = x.nameAr,
+                nameEn = x.nameEn,
+                nameFr = x.nameFr,
+                descriptionAr = x.descriptionAr,
+                descriptionEn = x.descriptionEn,
+                descriptionFr = x.descriptionFr,
             }).FirstOrDefault(x => x.Id == id);
             return privacyPolicy;
         }
@@ -33,8 +37,12 @@ namespace LocaKey.Service.Service.privacyPolicy
             var categoriesVm = _context.privacyPolicy.Where(x => x.IsDelete.Equals(false)).OrderByDescending(x => x.Id).Select(x => new privacyPolicyVM()
             {
                 Id = x.Id,
-                name = x.name,
-                description = x.description
+                nameAr = x.nameAr,
+                nameEn = x.nameEn,
+                nameFr = x.nameFr,
+                descriptionAr = x.descriptionAr,
+                descriptionEn = x.descriptionEn,
+                descriptionFr = x.descriptionFr,
             }).ToList();
 
             return categoriesVm;
@@ -43,9 +51,13 @@ namespace LocaKey.Service.Service.privacyPolicy
         {
 
             var privacyPolicy = new LocaKey.Data.Entity.privacyPolicy();
-            privacyPolicy.name = dto.name;
-            privacyPolicy.description= dto.description;
 
+            privacyPolicy.nameEn = dto.nameEn;
+            privacyPolicy.nameFr = dto.nameFr;
+            privacyPolicy.nameAr = dto.nameAr;
+            privacyPolicy.descriptionAr = dto.descriptionAr;
+            privacyPolicy.descriptionEn = dto.descriptionEn;
+            privacyPolicy.descriptionFr = dto.descriptionFr;
             _context.privacyPolicy.Add(privacyPolicy);
             _context.SaveChanges();
         }
@@ -62,9 +74,14 @@ namespace LocaKey.Service.Service.privacyPolicy
 
         public void Update(privacyPolicyDTO dto)
         {
-            var category = _context.Categorys.SingleOrDefault(x => x.Id == dto.Id && !x.IsDelete);
-            category.name = dto.name;
-            _context.Categorys.Update(category);
+            var privacyPolicy = _context.privacyPolicy.SingleOrDefault(x => x.Id == dto.Id && !x.IsDelete);
+            privacyPolicy.nameEn = dto.nameEn;
+            privacyPolicy.nameAr= dto.nameAr;
+            privacyPolicy.nameFr = dto.nameFr;
+            privacyPolicy.descriptionAr = dto.descriptionAr;
+            privacyPolicy.descriptionEn = dto.descriptionEn;
+            privacyPolicy.descriptionFr = dto.descriptionFr;
+            _context.privacyPolicy.Update(privacyPolicy);
             _context.SaveChanges();
         }
     }

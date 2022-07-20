@@ -18,14 +18,15 @@ namespace LocaKey.Core.ViweModel
         [Display(Name = "العنوان ")]
 
         public string title { get; set; }
-        [Display(Name = "التفاصيل ")]
-
-        public string description { get; set; }
+        [Display(Name = "التفاصيل بالعربية ")]
+        public string descriptionAr { get; set; }
+        [Display(Name = "التفاصيل بالانجليزية ")]
+        public string descriptionEn { get; set; }
+        [Display(Name = " التفاصيل بالفرنسية")]
+        public string descriptionFr { get; set; }
         [Display(Name = "الهاتف")]
-
         public string phone { get; set; }
         [Display(Name = "الايميل")]
-
         public string email { get; set; }
     }
 }

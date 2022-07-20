@@ -29,9 +29,13 @@
                             @Html.DisplayNameFor(model => model.Id)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.name)
+                            @Html.DisplayNameFor(model => model.nameAr)
                         </th>
-
+                          <th>
+                            @Html.DisplayNameFor(model => model.nameEn)
+                        </th>  <th>
+                            @Html.DisplayNameFor(model => model.nameEn)
+                        </th>
                         <th></th>
                     </tr>
                 </thead>
@@ -43,9 +47,13 @@
                                 @Html.DisplayFor(modelItem => item.Id)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.name)
+                                @Html.DisplayFor(modelItem => item.nameAr)
                             </td>
-
+                              <td>
+                                @Html.DisplayFor(modelItem => item.nameEn)
+                            </td>  <td>
+                                @Html.DisplayFor(modelItem => item.nameFr)
+                            </td>
                             <td>
                                 <a asp-action="Edit" asp-route-id="@item.Id" type="submit" class="btn btn-warning editDetails" data-id="@item.Id" data-toggle="modal">
                                     <i class="flaticon flaticon-edit"></i>

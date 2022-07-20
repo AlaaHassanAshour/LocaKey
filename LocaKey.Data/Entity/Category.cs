@@ -11,6 +11,9 @@ namespace LocaKey.Data.Entity
     {
         [Required]
 
-        public string name { get; set; }
+        public string nameAr { get; set; }
+        public string nameEn { get; set; }
+        public string nameFr { get; set; }
+
     }
 }

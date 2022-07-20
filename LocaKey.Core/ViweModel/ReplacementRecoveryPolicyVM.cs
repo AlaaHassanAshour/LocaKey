@@ -10,12 +10,25 @@ namespace LocaKey.Core.ViweModel
     public class ReplacementRecoveryPolicyVM
     {
         public int Id { get; set; }
-        [Display(Name = "الاسم ")]
-        public string name { get; set; }
-        [Display(Name = "التفاصيل")]
-        public string description { get; set; }
+        [Display(Name = " الاسم بالعربية ")]
+
+        public string nameAr { get; set; }
+        [Display(Name = "الاسم بالانجليزية")]
+        public string nameEn { get; set; }
+        [Display(Name = "الاسم بالفرنسية")]
+
+        public string nameFr { get; set; }
+        [Display(Name = "  الوصف بالعربية")]
+
+        public string descriptionAr { get; set; }
+        [Display(Name = "  الوصف بالانجليزية")]
+
+        public string descriptionEn { get; set; }
+        [Display(Name = "  الوصف بالفرنسية")]
+
+        public string descriptionFr { get; set; }
 
         public string MacAddress { get; set; }
-        public string IpAddress { get; set; }
+        public string IpAddress { get; set; }   
     }
 }

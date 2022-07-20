@@ -10,10 +10,12 @@ namespace LocaKey.web.Areas.Admin.Controllers
     public class AboutController : Controller
     {
         private readonly IAboutService _aboutService;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public AboutController(IAboutService aboutService)
+        public AboutController(IAboutService aboutService, IWebHostEnvironment hostingEnvironment)
         {
             _aboutService = aboutService;
+            _hostingEnvironment = hostingEnvironment;   
         }
         public IActionResult Index()
         {
@@ -26,6 +28,17 @@ namespace LocaKey.web.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Create(AboutDTO model)
         {
+            string imegPath = @"default.jpg";
+            var files = HttpContext.Request.Form.Files;
+            if (files.Count > 0)
+            {
+                string webRootPath = _hostingEnvironment.WebRootPath;
+                string ImegName = DateTime.Now.ToFileTime().ToString() + Path.GetExtension(files[0].FileName);
+                FileStream fileStream = new FileStream(Path.Combine(webRootPath, "Images", ImegName), FileMode.Create);
+                files[0].CopyTo(fileStream);
+                imegPath = ImegName;
+            }
+            model.logo = imegPath;
             _aboutService.Create(model);
             return RedirectToAction("index");
         }

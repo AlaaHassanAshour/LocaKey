@@ -18,7 +18,9 @@ namespace LocaKey.Data.Entity
 
         public string title { get; set; }
         [Required]
-        public string description { get; set; }
+        public string descriptionAr { get; set; }
+        public string descriptionEn { get; set; }
+        public string descriptionFr { get; set; }
         public string phone { get; set; }
         public string email { get; set; }
     }

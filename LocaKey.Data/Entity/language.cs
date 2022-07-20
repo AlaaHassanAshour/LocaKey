@@ -8,8 +8,7 @@ namespace LocaKey.Data.Entity
 {
     public class language:BaseEntity
     {
-        public string Arabic { get; set; }
-        public string English { get; set; }
-        public string France { get; set; }
+        public string Language { get; set; }
+
     }
 }

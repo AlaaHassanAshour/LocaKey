@@ -13,29 +13,20 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <input type="hidden" asp-for="Id" /> 
-                <label asp-for="Arabic" class="control-label"></label>
-                <input asp-for="Arabic" class="form-control" />
-                <span asp-validation-for="Arabic" class="text-danger"></span>
-            </div>
-             <div class="form-group">
-                <label asp-for="English" class="control-label"></label>
-                <input asp-for="English" class="form-control" />
-                <span asp-validation-for="English" class="text-danger"></span>
-            </div>
-             <div class="form-group">
-                <label asp-for="France" class="control-label"></label>
-                <input asp-for="France" class="form-control" />
-                <span asp-validation-for="France" class="text-danger"></span>
+                <label asp-for="Language" class="control-label"></label>
+                <input asp-for="Language" class="form-control" />
+                <span asp-validation-for="Language" class="text-danger"></span>
             </div>
 
+
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="حفظ" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">الرجوع للخلف</a>
 </div>
 

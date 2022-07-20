@@ -25,7 +25,9 @@ namespace LocaKey.Service.Service.Product
             {
                 Category = new CategoryVM()
                 {
-                    name = x.Category.name
+                    nameAr = x.Category.nameAr,
+                    nameEn= x.Category.nameEn,
+                    nameFr= x.Category.nameFr
                 },
                 description_ar = x.description_ar,
                 description_en = x.description_en,
@@ -54,7 +56,9 @@ namespace LocaKey.Service.Service.Product
             {
                 Category = new CategoryVM()
                 {
-                    name = x.Category.name
+                    nameAr = x.Category.nameAr,
+                    nameEn = x.Category.nameEn,
+                    nameFr = x.Category.nameFr
                 },
                 description_ar = x.description_ar,
                 description_en = x.description_en,

@@ -23,9 +23,7 @@ namespace LocaKey.Service.Service.Language
             var language = _context.language.Select(x => new LanguageVM()
             {
                 Id = x.Id,
-                Arabic=x.Arabic,
-                English=x.English,
-                France=x.France
+               Language = x.Language,
             }).FirstOrDefault(x => x.Id == id);
             return language;
         }
@@ -34,9 +32,7 @@ namespace LocaKey.Service.Service.Language
             var languages = _context.language.Where(x => x.IsDelete.Equals(false)).OrderByDescending(x => x.Id).Select(x => new LanguageVM()
             {
                 Id = x.Id,
-                Arabic = x.Arabic,
-                English = x.English,
-                France = x.France
+                Language = x.Language,
             }).ToList();
 
             return languages;
@@ -47,9 +43,7 @@ namespace LocaKey.Service.Service.Language
             var language = new LocaKey.Data.Entity.language() {
 
                 Id = dto.Id,
-                Arabic = dto.Arabic,
-                English = dto.English,
-                France = dto.France
+             Language=dto.Language,
             };
            
 
@@ -70,9 +64,7 @@ namespace LocaKey.Service.Service.Language
         public void Update(LanguageDTO dto)
         {
             var language = _context.language.SingleOrDefault(x => x.Id == dto.Id && !x.IsDelete);
-            language.Arabic = dto.Arabic;
-            language.English = dto.English;
-            language.France = dto.France;
+            language.Language= dto.Language;
             _context.language.Update(language);
             _context.SaveChanges();
         }

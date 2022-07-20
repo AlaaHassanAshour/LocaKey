@@ -1,38 +1,69 @@
-﻿
-@model LocaKey.Core.DTO.privacyPolicyDTO
-<h4>Category</h4>
+﻿@model LocaKey.Core.DTO.privacyPolicyDTO
+
 <div class="card card-custom gutter-b">
     <div class="card-header">
         <div class="card-title">
             <h3 class="card-label">
-               ADD privacy Policy
-                <small>Manege Add nwe privacy Policy</small>
+                اضافة سياسة الخصوصية
+                <small>
+                    ا دارة اضافة سياسة الخصوصية
+                </small>
             </h3>
         </div>
-      
+
     </div>
     <div class="card-body">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label asp-for="name" class="control-label"></label>
-                        <input asp-for="name" class="form-control" />
-                        <span asp-validation-for="name" class="text-danger"></span>
+                        <label asp-for="nameAr" class="control-label"></label>
+                        <input asp-for="nameAr" class="form-control" />
+                        <span asp-validation-for="nameAr" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label asp-for="description" class="control-label"></label>
-                        <input asp-for="description" class="form-control" />
-                        <span asp-validation-for="description" class="text-danger"></span>
+                        <label asp-for="nameEn" class="control-label"></label>
+                        <input asp-for="nameEn" class="form-control" />
+                        <span asp-validation-for="nameEn" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="nameFr" class="control-label"></label>
+                        <input asp-for="nameFr" class="form-control" />
+                        <span asp-validation-for="nameFr" class="text-danger"></span>
                     </div>
                 </div>
             </div>
-           <br />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="descriptionAr" class="control-label"></label>
+                        <input asp-for="descriptionAr" class="form-control" />
+                        <span asp-validation-for="descriptionAr" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="descriptionEn" class="control-label"></label>
+                        <input asp-for="descriptionEn" class="form-control" />
+                        <span asp-validation-for="descriptionEn" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="descriptionFr" class="control-label"></label>
+                        <input asp-for="descriptionFr" class="form-control" />
+                        <span asp-validation-for="descriptionFr" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="حفظ" class="btn btn-primary" />
             </div>
         </form>
     </div>

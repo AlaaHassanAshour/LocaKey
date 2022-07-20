@@ -10,9 +10,18 @@ namespace LocaKey.Core.DTO
     public class privacyPolicyDTO
     {
         public int Id{ get; set; }
-        [Display(Name = "العربية")]
-        public string name { get; set; }
-        [Display(Name = "التفاصل")]
-        public string description { get; set; }
+        [Display(Name = "الاسم بالعربية")]
+        public string nameAr { get; set; }
+        [Display(Name = "الاسم بالانجليزية")]
+        public string nameEn { get; set; }
+        [Display(Name = "الاسم بالفرنسية")]
+        public string nameFr { get; set; }
+        [Display(Name = "الوصف بالعربية")]
+        public string descriptionAr { get; set; }
+        [Display(Name = "الوصف بالانجليزية")]
+
+        public string descriptionEn { get; set; }
+        [Display(Name = "الوصف بالفرنسية")]
+        public string descriptionFr { get; set; }
     }
 }

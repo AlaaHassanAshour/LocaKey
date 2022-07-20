@@ -24,7 +24,9 @@ namespace LocaKey.Service.Service.About
             {
                 Id = x.Id,
                 name = x.name,
-                description=x.description,
+                descriptionAr =x.descriptionAr,
+                descriptionEn =x.descriptionEn,
+                descriptionFr =x.descriptionFr,
                 email = x.email,
                 logo=x.logo,
                 phone=x.phone,
@@ -38,7 +40,9 @@ namespace LocaKey.Service.Service.About
             {
                 Id = x.Id,
                 name = x.name,
-                description = x.description,
+                descriptionAr = x.descriptionAr,
+                descriptionEn = x.descriptionEn,
+                descriptionFr = x.descriptionFr,
                 email = x.email,
                 logo = x.logo,
                 phone = x.phone,
@@ -52,7 +56,9 @@ namespace LocaKey.Service.Service.About
 
             var about = new LocaKey.Data.Entity.About();
             about.name = dto.name;
-            about.description = dto.description;
+            about.descriptionAr = dto.descriptionAr;
+            about.descriptionEn = dto.descriptionEn;
+            about.descriptionFr = dto.descriptionFr;
             about.email = dto.email;
             about.phone = dto.phone;
             about.logo= dto.logo;
@@ -76,7 +82,9 @@ namespace LocaKey.Service.Service.About
         {
             var about = _context.About.SingleOrDefault(x => x.Id == dto.Id && !x.IsDelete);
             about.name = dto.name;
-            about.description = dto.description;
+            about.descriptionAr = dto.descriptionAr;
+            about.descriptionEn = dto.descriptionEn;
+            about.descriptionFr = dto.descriptionFr;
             about.email = dto.email;
             about.phone = dto.phone;
             about.logo = dto.logo;

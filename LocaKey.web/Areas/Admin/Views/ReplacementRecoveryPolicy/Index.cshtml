@@ -9,13 +9,13 @@
         <div class="card-header">
             <div class="card-title">
                 <h3 class="card-label">
-                    ReplacementRecoveryPolicy
-                    <small>Manege  ReplacementRecoveryPolicy</small>
+                    ساسة الاستبدال والاسترجاع
+
                 </h3>
             </div>
             <div class="card-toolbar">
                 <a asp-action="Create" class="btn btn-success showcreate" data-toggle="modal">
-                    <i class="flaticon2-cube"></i> Create  Replacement Recovery Policy
+                    <i class="flaticon2-cube"></i> اضافة
                 </a>
             </div>
         </div>
@@ -29,15 +29,27 @@
                             @Html.DisplayNameFor(model => model.Id)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.name)
+                            @Html.DisplayNameFor(model => model.nameAr)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.description)
+                            @Html.DisplayNameFor(model => model.nameEn)
                         </th>
-                         <th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.nameFr)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.descriptionAr)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.descriptionEn)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.descriptionFr)
+                        </th>
+                        <th>
                             @Html.DisplayNameFor(model => model.IpAddress)
                         </th>
- <th>
+                        <th>
                             @Html.DisplayNameFor(model => model.MacAddress)
                         </th>
 
@@ -52,25 +64,37 @@
                                 @Html.DisplayFor(modelItem => item.Id)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.name)
+                                @Html.DisplayFor(modelItem => item.nameAr)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.description)
+                                @Html.DisplayFor(modelItem => item.nameEn)
                             </td>
-                             <td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nameFr)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.descriptionAr)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.descriptionEn)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.descriptionFr)
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.IpAddress)
                             </td>
-                             <td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.MacAddress)
                             </td>
                             <td>
                                 <a asp-action="Edit" asp-route-id="@item.Id" type="submit" class="btn btn-warning editDetails" data-id="@item.Id" data-toggle="modal">
                                     <i class="flaticon flaticon-edit"></i>
-                                    Edit
+                                    تعديل
                                 </a> |
                                 <a asp-action="Delete" asp-route-id="@item.Id" type="submit" class="btn btn-danger deletemodal" data-id="@item.Id" data-toggle="modal">
                                     <i class="flaticon flaticon-delete"></i>
-                                    Delete
+                                    حذف
                                 </a>
                             </td>
                         </tr>
@@ -89,7 +113,7 @@ else
 {
     <div class="card-toolbar">
         <a asp-action="Create" class="btn btn-success showcreate" data-toggle="modal">
-            <i class="flaticon2-cube"></i> Create Evant ReplacementRecoveryPolicy
+            <i class="flaticon2-cube"></i> اضافة
         </a>
     </div>
     <hr />
@@ -101,19 +125,3 @@ else
     </div>
 
 }
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog-centered modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-success text-light justify-content-center">
-                <h5 class="modal-title"></h5>
-            </div>
-            <div class="modal-body justify-content-center" id="myModalContent">
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" style="width:20%" data-dismiss="modal">
-                    Close
-                </button>
-            </div>
-        </div>
-    </div>
-</div>

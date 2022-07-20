@@ -10,7 +10,11 @@ namespace LocaKey.Core.DTO
     public class CategoryDTO
     {
         public int Id { get; set; }
-        [Display(Name="الاسم ")]
-        public string name { get; set; }
+        [Display(Name="الاسم بالعربية ")]
+        public string nameAr { get; set; }
+        [Display(Name = "الاسم بالانجليزية ")]
+        public string nameEn { get; set; }
+        [Display(Name = "الاسم بلفرنسية ")]
+        public string nameFr { get; set; }
     }
 }
