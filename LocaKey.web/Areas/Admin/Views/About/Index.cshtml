@@ -14,9 +14,7 @@
                 </h3>
             </div>
             <div class="card-toolbar">
-                <a asp-action="Create" class="btn btn-success showcreate" data-toggle="modal">
-                    <i class="flaticon2-cube"></i>اضافة
-                </a>
+                
             </div>
         </div>
         <div class="card-body">
@@ -89,11 +87,8 @@
                                 <a asp-action="Edit" asp-route-id="@item.Id" type="submit" class="btn btn-warning editDetails" data-id="@item.Id" data-toggle="modal">
                                     <i class="flaticon flaticon-edit"></i>
                                     تعديل
-                                </a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id" type="submit" class="btn btn-danger deletemodal" data-id="@item.Id" data-toggle="modal">
-                                    <i class="flaticon flaticon-delete"></i>
-                                    حذف
                                 </a>
+                               
                             </td>
                         </tr>
                     }

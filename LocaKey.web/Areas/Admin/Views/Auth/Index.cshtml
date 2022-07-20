@@ -10,19 +10,17 @@
         <div class="card-header">
             <div class="card-title">
                 <h3 class="card-label">
-                    Users
-                    <small>Manege Users</small>
+                    الحسابات
+                    <small>ادارة الحسبات</small>
                 </h3>
             </div>
             <div class="card-toolbar">
                 <a asp-action="Register" class="btn btn-sm btn-success font-weight-bold">
-                    <i class="flaticon2-cube"></i> Create Users
+                    <i class="flaticon2-cube"></i>انشاء حساب
                 </a>
             </div>
         </div>
         <div class="card-body">
-
-
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -52,16 +50,17 @@
                             <th>
                                 @item.Phone
                             </th>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">
-                                    <i class="flaticon flaticon-edit"></i>
-                                    Edit
-                                </a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
-                                    <i class="flaticon flaticon-delete"></i>
-                                    Delete
-                                </a>
-                            </td>
+                            @*     <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">
+                    <i class="flaticon flaticon-edit"></i>
+                    تعديل
+                    </a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                    <i class="flaticon flaticon-delete"></i>
+                    حذف
+                    </a>
+                    </td>
+                    *@
                         </tr>
                     }
 
@@ -71,13 +70,12 @@
             </table>
         </div>
     </div>
-
 }
 else
 {
     <div class="card-toolbar">
         <a asp-action="Register" class="btn btn-sm btn-success font-weight-bold">
-            <i class="flaticon2-cube"></i> Create User
+            <i class="flaticon2-cube"></i> انشاء حساب
         </a>
     </div>
     <hr />

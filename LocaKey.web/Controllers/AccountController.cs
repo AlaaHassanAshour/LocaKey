@@ -13,6 +13,7 @@ namespace LocaKey.web.Controllers
         private readonly SignInManager<User> signInManager;
         private readonly UserManager<User> userManager;
 
+        public string ReturnUrl { get; set; }
 
         public AccountController(SignInManager<User> signInManager, UserManager<User> userManager)
         {
@@ -28,6 +29,7 @@ namespace LocaKey.web.Controllers
         [AllowAnonymous]
         public IActionResult Login()
         {
+          
             return View();
         }
         [HttpPost]
@@ -39,6 +41,7 @@ namespace LocaKey.web.Controllers
             {
                 return View(dto);
             }
+            returnUrl = returnUrl ?? Url.Content("~/");
 
             var result = await signInManager.PasswordSignInAsync(dto.Username, dto.Password,
                    //Remember Me
@@ -49,6 +52,7 @@ namespace LocaKey.web.Controllers
             {
                 if (!string.IsNullOrEmpty(returnUrl))
                 {
+                   
                     return LocalRedirect(returnUrl);
                 }
                 return RedirectToAction("Index", "Home");
