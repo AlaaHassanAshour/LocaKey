@@ -1,5 +1,6 @@
 ﻿using LocaKey.web.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace LocaKey.web.Component
@@ -19,18 +20,18 @@ namespace LocaKey.web.Component
             var cart = new LocaKey.Data.Entity.CartCookies();
             cart.UserId = claim.Value;
             cart.ProductId = id;
-            var product = _context.Products.Where(m => m.Id == id && !m.IsDelete).ToList();
-            cart.total = product.Count;
-            foreach (var item in product)
-            {
-                cart.totalprice += item.count * item.price_ar;
-            }
             cart.PickUpTime = DateTime.Now;
+      
+            var carts = await _context.CartCookies.Include(x => x.Product).Where(m => m.UserId == claim.Value && !m.IsDelete).ToListAsync();
+            foreach (var item in carts)
+            {
+                cart.total = item.Product.count;
+                cart.totalprice += item.total * item.Product.price_ar;
+            }
+            ViewBag.totalprice = cart.totalprice;
             _context.CartCookies.Add(cart);
             _context.SaveChanges();
-
-//            var cart = _
-            return View(product);
+            return View(carts);
         }
     }
 }

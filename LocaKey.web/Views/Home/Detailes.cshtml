@@ -66,7 +66,10 @@
 
             <!-- <i class="bi bi-heart-fill p-4 hart"></i> -->
             <!-- Button trigger modal -->
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-cart3 "></i>Add To Cart</button>
+            <form method="post" data-ajax="true" data-ajax-url="" data-ajax-method="post">
+                <button  class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-cart3 "></i>Add To Cart</button>
+
+            </form>
 
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                 <div class="offcanvas-header">
@@ -79,11 +82,10 @@
 
                 </div>
                 <hr class="linemodel">
-                <div class="offcanvas-body">
-              
+                <div class="offcanvas-body"
                      @await Component.InvokeAsync("AddCart",
-                     new { 
-                        id=@Model.Id
+                     new {
+                     id=Model.Id
                      }
                      )
                 </div>
@@ -102,15 +104,12 @@
 
 
                 </p>
-
-
             </div>
-
         </div>
 
 
     </div>
-    </div>
+
 </section>
 
 
@@ -129,7 +128,6 @@
         <div class="row">
 
             <div class="col-md-6">
-                
             </div>
             <div class="col-md-6">
 
@@ -150,8 +148,15 @@
 
 
 
-    </div>
-    </div>
 
 </section>
 
+@section Scripts{
+
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        failed = function(xhr) {
+            alert(`Status: {xhr.status}, Status Text: {xhr.statusText}`);
+        };
+    </script>
+}
