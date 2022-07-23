@@ -55,7 +55,7 @@ namespace LocaKey.web.Areas.Admin.Controllers
             {
                 await _signInManager.SignInAsync(user, false);
                // await _userManager.AddToRoleAsync(user, "Admin");
-                return Redirect("/Admin/home/index");
+                return Redirect("/Admin/Auth/index");
             }
             return NotFound();
         }
@@ -95,6 +95,5 @@ namespace LocaKey.web.Areas.Admin.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-
     }
 }

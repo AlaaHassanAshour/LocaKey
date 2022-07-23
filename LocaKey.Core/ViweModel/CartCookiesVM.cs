@@ -11,7 +11,7 @@ namespace LocaKey.Core.ViweModel
     {
         public int Id { get; set; }
         [Display(Name = "الكمية الكلية ")]
-        public int total { get; set; }
+        public float total { get; set; }
         [Display(Name = "الكمية المباعة ")]
 
         public int quantitySold { get; set; }

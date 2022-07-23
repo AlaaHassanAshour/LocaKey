@@ -1,0 +1,52 @@
+@media screen and (max-width: 1024px) { 
+	 
+}
+
+@media screen and (max-width: 991px) { 
+    .container #slider {
+        height: 19rem;
+        transform: scale(0.84);
+        text-align: center;
+        border-radius: 1rem;
+    }
+    .carousel-caption {
+        position: absolute;
+        right: 29%;
+        bottom: -3.75rem;
+        left: 27%;
+        top: -21%;
+        padding-top: 1.25rem;
+        padding-bottom: 3.25rem;
+        color: #fff;
+        text-align: left;
+    }
+    
+}
+@media screen and (max-width: 767px) { 
+     
+}
+
+@media screen and (max-width: 480px) { 
+ 
+    
+	
+}
+@media screen and (max-width: 420px) { 
+	 
+}
+@media screen and (max-width: 375px) { 
+ 
+
+}
+@media screen and (max-width: 360px) { 
+ 
+}
+
+@media only screen and (min-width: 1200px) {
+ 
+
+}
+ 
+@media only screen and (min-width: 992px) {
+ 
+} 

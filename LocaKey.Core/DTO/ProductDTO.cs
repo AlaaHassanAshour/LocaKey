@@ -49,9 +49,8 @@ namespace LocaKey.Core.DTO
         [Display(Name = "الاسم الصورة")]
 
         public string imege { get; set; }
-        [Display(Name = "المنتج")]
+        [Display(Name = "التصنيف")]
         public int CategoryId { get; set; }
-
 
     }
 }

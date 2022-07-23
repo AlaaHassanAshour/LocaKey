@@ -1,4 +1,369 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model LocaKey.Core.ViweModel.HomeProductVM
 
-  }
+<section id="lading">
+    <div class="container mt-5">
+        <div class="row">
+            <div id="slider" class="col-sm-8 position-relative bg-secondary mb-md-5 ">
+                <div id="carouselExampleDark" class="carousel carousel-dark slide my-5" data-bs-ride="carousel">
+                    <div class="carousel-indicators ">
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
+                                class="active w-25" style="position: absolute;top: 6rem;margin-left: -20rem;"
+                                aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                                class="w-25" aria-label="Slide 2"
+                                style="position: absolute;top: 6rem; margin-left: 0rem;"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                                class="w-25" aria-label="Slide 3"
+                                style="position: absolute;top: 6rem; margin-left: 20rem;"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class=" carousel-item active " style="margin-left: 6rem;" data-bs-interval="10000">
+                            <img src="~/asset/img/laging1.png " class="d-block  w-25 me-5  " alt="...">
+                            <div class="carousel-caption  d-md-block ">
+                                <h5>First slide label</h5>
+                                <p>Some representative placeholder content for the first slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="margin-left: 6rem;" data-bs-interval="2000">
+                            <img src="~/asset/img/laging1.png" class="d-block w-25" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Second slide label</h5>
+                                <p>Some representative placeholder content for the second slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="margin-left:6rem ;">
+                            <img src="~/asset/img/laging1.png" class="d-block w-25" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Third slide label</h5>
+                                <p>Some representative placeholder content for the third slide.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev control" type="button" data-bs-target="#carouselExampleDark"
+                            data-bs-slide="prev">
+                        <span class="material-symbols-outlined">
+                            arrow_back
+                        </span>
+                    </button>
+                    <button class="carousel-control-next control" type="button" data-bs-target="#carouselExampleDark"
+                            data-bs-slide="next">
+                        <span class="material-symbols-outlined">
+                            arrow_forward
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-4 radius">
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-lg-12 col-md-6">
+                            <div class="card mb-3 radius border-0 bg-secondary" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4 my-auto">
+                                        <img src="~/asset/img/thinkfree-office-microsoft-office-electronics-png-favpng-SzH389iSAVJawvw5D65fyjEeb.png"
+                                             class="img-fluid rounded-start" alt="...">
+                                    </div>
+                                    <div class="col-md-8 py-4">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Lighting</h5>
+                                            <p class="card-text">Sale off 10% only today.</p>
+                                            <p class="card-text"><small class="text-primary">Shop now</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-6">
+                            <div class="card mb-3 radius border-0 bg-secondary" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4 my-auto">
+                                        <img src="~/asset/img/thinkfree-office-microsoft-office-electronics-png-favpng-SzH389iSAVJawvw5D65fyjEeb.png"
+                                             class="img-fluid rounded-start" alt="...">
+                                    </div>
+                                    <div class="col-md-8 py-4">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Lighting</h5>
+                                            <p class="card-text">Sale off 10% only today.</p>
+                                            <p class="card-text"><small class="text-primary">Shop now</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--server-->
+<section id="server" class="my-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 my-1">
+                <div class="d-flex justify-content-evenly align-items-center bg-secondary p-3">
+                    <img src="~/asset/img/delivery-truck.png" class="ms-md-4" width="15%" height="15%" alt=""
+                         srcset="">
+                    <div class="pt-1">
+                        <h5>Free Delivery Spend Over $250</h5>
+                        <p class="text-muted">Some Areas Excluded.Standard Only.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 my-1">
+                <div class="d-flex justify-content-evenly align-items-center bg-secondary p-3">
+                    <img src="~/asset/img/credit-cards.png" width="18%" height="18%" alt="" srcset="">
+                    <div class="pt-1">
+                        <h5>Save 20% when you</h5>
+                        <p class="text-muted">Use credit card.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 my-1">
+                <div class="d-flex justify-content-evenly align-items-center bg-secondary p-3">
+                    <img src="~/asset/img/return (1).png" width="18%" height="18%" alt="" srcset="">
+                    <div class="pt-1">
+                        <h5>14-Day Money back</h5>
+                        <p class="text-muted">If you are unable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!--Shop-->
+<section id="shop" class="mt-5">
+    <div class="contanier my-3">
+        <div class="d-flex justify-content-center justify-content-md-evenly">
+            <h2 class="fw-bold">SHOP OUR LATEST OFFERS</h2>
+        </div>
+        <!-- Control buttons -->
+
+    </div>
+    <div id="myBtnContainer " class="text-center">
+        <button class="btn active" data-filter=".AllCategory"> Show all</button>
+        @foreach (var item in Model.category)
+        {
+            <button class="btn" data-filter=".@item.nameAr.Replace(" ",string.Empty)"> @item.nameAr</button>
+        }
+    </div>
+    <div class="container my-5">
+        <div class="row">
+            @foreach (var item in Model.product)
+            {
+                <div class="filterDiv cars col-lg-3 col-md-6">
+                    <div class="card border-0" style="width: 18rem;border-radius: 1rem;">
+                        <div style="border-radius:2rem 2rem 0rem 0rem ; ">
+                            <img src="~/Images/@item.imege" class="card-img-top" alt="...">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text text-center">@item.name_ar</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="card-text text-center">
+                                   
+                                    <a asp-action="Detailes" asp-route-Id="@item.Id"> VIEW DETAILS</a>
+                                   
+                                    <span class="text-primary w46"> @item.price_ar</span> <span class="text-decoration-line-through w45">49.99$</span>
+                            
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</section>
+
+<!--prouduct-->
+<section id="prouduct">
+    <div class="container">
+        <div class="row">
+            <div class="d-flex justify-content-between">
+                <h3>POPULAR PRODUCTS</h3>
+                <a href="#" class="text-decoration-none link-dark">See More</a>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="row">
+            <div class="owl-carousel owl-theme " style="direction:ltr;">
+                <div class="item">
+                    <div class="card border-0 " style="width: 18rem;border-radius: 1rem;">
+                        <div style="border-radius:2rem 2rem 0rem 0rem ; ">
+                            <img src="~/asset/img/blog1.png" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text text-center">Office 2021 Professional Plus License</p>
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <p class="card-text text-center">
+                                        <button>VIEW DETAILS</button>
+                                        <span class="text-primary w46"> 9.99$</span> <span class="text-decoration-line-through w45">49.99$</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card border-0 " style="width: 18rem;border-radius: 1rem;">
+                        <div style="border-radius:2rem 2rem 0rem 0rem ; ">
+                            <img src="~/asset/img/blog2.png" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text text-center">Office 2021 Professional Plus License</p>
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <p class="card-text text-center">
+                                        <button>VIEW DETAILS</button>
+                                        <span class="text-primary w46"> 9.99$</span> <span class="text-decoration-line-through w45">49.99$</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card border-0 " style="width: 18rem;border-radius: 1rem;">
+                        <div style="border-radius:2rem 2rem 0rem 0rem ; ">
+                            <img src="~/asset/img/blog3.png" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text text-center">Office 2021 Professional Plus License</p>
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <p class="card-text text-center">
+                                        <button>VIEW DETAILS</button>
+                                        <span class="text-primary w46"> 9.99$</span> <span class="text-decoration-line-through w45">49.99$</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card border-0 " style="width: 18rem;border-radius: 1rem;">
+                        <div style="border-radius:2rem 2rem 0rem 0rem ; ">
+                            <img src="~/asset/img/blog4.png" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text text-center">Office 2021 Professional Plus License</p>
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <p class="card-text text-center">
+                                        <button>VIEW DETAILS</button>
+                                        <span class="text-primary w46"> 9.99$</span> <span class="text-decoration-line-through w45">49.99$</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card border-0 " style="width: 18rem;border-radius: 1rem;">
+                        <div style="border-radius:2rem 2rem 0rem 0rem ; ">
+                            <img src="~/asset/img/blog3.png" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text text-center">Office 2021 Professional Plus License</p>
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <p class="card-text text-center">
+                                        <button>VIEW DETAILS</button>
+                                        <span class="text-primary w46"> 9.99$</span> <span class="text-decoration-line-through w45">49.99$</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card border-0 " style="width: 18rem;border-radius: 1rem;">
+                        <div style="border-radius:2rem 2rem 0rem 0rem ; ">
+                            <img src="~/asset/img/blog2.png" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text text-center">Office 2021 Professional Plus License</p>
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <p class="card-text text-center">
+                                        <button>VIEW DETAILS</button>
+                                        <span class="text-primary w46"> 9.99$</span> <span class="text-decoration-line-through w45">49.99$</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+        </section>
+
+<!--Partners-->
+<h1 class="text-center">OurPartners</h1>
+<section id="OurPartners">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3 mt-4">
+
+                <img src="~/asset/img/ourp1 (1).svg">
+            </div>
+            <div class="col-md-3 mt-4">
+                <img src="~/asset/img/ourp1 (2).svg">
+            </div>
+            <div class="col-md-3 mt-4">
+                <img src="~/asset/img/ourp1 (3).svg">
+            </div>
+            <div class="col-md-3 mt-4">
+                <img src="~/asset/img/ourp1 (4).svg">
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+@section Scripts{
+
+    <script>
+        $(document).ready(
+            function($) {
+                $("#menu-filter li").click(
+                    function() {
+                        $("#menu-filter li").removeClass("active btn btn-secondary");
+                        $(this).addClass("active btn btn-secondary");
+                        var selectedFilter = $(this).data("filter");
+                        $(".AllCategory").fadeOut();
+                        setTimeout(function() {
+                            $(selectedFilter).slideDown();
+
+                        }, 300);
+
+                    }
+
+
+                )
+            }
+
+        );
+    </script>
+
+}

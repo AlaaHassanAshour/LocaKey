@@ -8,8 +8,8 @@ namespace LocaKey.Data.Entity
 {
     public class CartBasket:BaseEntity
     {
-        public int total { get; set; }
-        public int totalprice { get; set; }
+        public float total { get; set; }
+        public float totalprice { get; set; }
         public DateTime PickUpTime { get; set; }
         public int ProductId { get; set; }
         public Product Product { get; set; }

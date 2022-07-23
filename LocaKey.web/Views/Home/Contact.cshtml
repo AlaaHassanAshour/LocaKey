@@ -1,0 +1,63 @@
+﻿
+@model LocaKey.Core.ViweModel.ContactVM
+
+<div id="contact" class="contact-area section-padding">
+	<div class="container">										
+		<div class="section-title text-left">
+    
+        <i class="fa-solid fa-house"></i> Home >
+        <a href="#" style="color: #F57A38;">Contact</a>
+
+			<h1>Contact</h1>
+			<p></p>
+		</div>	
+    				
+		<div class="row">
+      
+            <div class="col-lg-5">
+				<div class="single_address">
+					<i class="fa fa-map-marker"></i>
+					<h4>Address</h4>
+					<p>Palestine - Gaza - Al-Rasheed
+            Street - next to the port</p>
+				</div>
+				<div class="single_address">
+					<i class="fa fa-phone"></i>
+					<h4>phone</h4>
+					<p>@Model.about.phone</p>
+					
+				</div>
+				<div class="single_address">
+          <i class="fa fa-envelope"></i>
+				
+					<h4>E-mail</h4>
+					<p>@Model.about.email</p>
+				</div>
+	 				
+			</div><!--- END COL --> 
+			<div class="col-lg-7">	
+				<div class="contact">
+					<form class="form" method="post" asp-action="ContactPost">
+						<div class="row">
+							<div class="form-group col-md-6">
+								<input type="text" asp-for="contact.name" class="form-control" placeholder="Name" required="required">
+							</div>
+							<div class="form-group col-md-6">
+								<input type="email" asp-for="contact.email" class="form-control" placeholder="Email" required="required">
+							</div>
+							<div class="form-group col-md-12">
+								<input type="text" asp-for="contact.subject" class="form-control" placeholder="Subject" required="required">
+							</div>
+							<div class="form-group col-md-12">
+								<textarea rows="6" asp-for="contact.yourMessage"class="form-control" placeholder="Your Message" required="required"></textarea>
+							</div>
+							<div class="col-md-12 text-center">
+								<button type="submit" value="Send message" name="submit" id="submitButton" class="btn btn-contact-bg" title="Submit Your Message!">Send Message</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div><!--- END COL --> 
+	
+		</div><!--- END ROW -->
+	</div><!--- END CONTAINER -->	

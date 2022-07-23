@@ -17,6 +17,9 @@ namespace LocaKey.Core.DTO
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+
+        public string? country { get; set; }
+        public string? registration_date { get; set; }
         [Required]
         public string Password { get; set; }
         [Compare("Password")]

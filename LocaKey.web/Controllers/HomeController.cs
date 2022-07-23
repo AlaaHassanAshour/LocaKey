@@ -1,32 +1,52 @@
-﻿using LocaKey.web.Models;
+﻿using LocaKey.Core.ViweModel;
+using LocaKey.web.Data;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-
 namespace LocaKey.web.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
-
         public IActionResult Index()
         {
-            return View();
+            HomeProductVM homeProductVM = new HomeProductVM()
+            {
+                category = _context.Categorys.Where(x => x.IsDelete.Equals(false)).ToList(),
+                product = _context.Products.Where(x => x.IsDelete.Equals(false)).ToList()
+            };
+            return View(homeProductVM);
         }
-
-        public IActionResult Privacy()
+        public IActionResult Contact()
         {
-            return View();
+            var contactVM = new ContactVM()
+            {
+                about = _context.About.SingleOrDefault(x => x.Id == 8),
+            };
+
+            return View(contactVM);
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult ContactPost(ContactVM model)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            _context.Contact.Add(model.contact);
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+        public IActionResult About()
+        {
+
+            return View(_context.About.SingleOrDefault(x => x.Id == 8));
+        }
+        public IActionResult Detailes(int id)
+        {
+            var detailes = _context.Products.SingleOrDefault(x => x.Id == id);
+            return View(detailes);
         }
     }
 }

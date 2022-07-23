@@ -1,15 +1,12 @@
 ﻿@model LocaKey.Core.DTO.CouponsDTO
 
-<h4>Category</h4>
 <div class="card card-custom gutter-b">
     <div class="card-header">
         <div class="card-title">
             <h3 class="card-label">
-              اضافة كبون
-              
+                اضافة كبون
             </h3>
         </div>
-
     </div>
     <div class="card-body">
         <form asp-action="Create" enctype="multipart/form-data">
@@ -34,7 +31,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="De_activation" class="control-label"></label>
-                        <input type="checkbox" asp-for="De_activation" class="form-control" />
+                        <input type="checkbox" asp-for="De_activation"  class="form-control" />
                         <span asp-validation-for="De_activation" class="text-danger"></span>
                     </div>
                 </div>
@@ -42,8 +39,7 @@
                     <div class="form-group">
                         <label asp-for="discountType" class="control-label"></label>
                         <select asp-for="discountType" asp-items="@new  SelectList(Enum.GetNames(typeof(LocaKey.Data.Entity.Coupons.DiscountType)))" class="form-control">  </select>
-
-                            <span asp-validation-for="discountType" class="text-danger"></span>
+                        <span asp-validation-for="discountType" class="text-danger"></span>
                     </div>
                 </div>
             </div>

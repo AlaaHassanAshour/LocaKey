@@ -24,17 +24,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="descriptionAr" class="control-label"></label>
-                <input asp-for="descriptionAr" class="form-control" />
+                <textarea asp-for="descriptionAr" class="form-control summernote" ></textarea>
                 <span asp-validation-for="descriptionAr" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="descriptionFr" class="control-label"></label>
-                <input asp-for="descriptionFr" class="form-control" />
+                <textarea asp-for="descriptionFr" class="form-control summernote" ></textarea>
                 <span asp-validation-for="descriptionFr" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="descriptionEn" class="control-label"></label>
-                <input asp-for="descriptionEn" class="form-control" />
+                <textarea asp-for="descriptionEn" class="form-control summernote" ></textarea>
                 <span asp-validation-for="descriptionEn" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -65,3 +65,12 @@
     <a asp-action="Index">الرجوع للخلف</a>
 </div>
 
+            @section Scripts {
+    <script src="js/pages/crud/forms/editors/summernote.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.summernote').summernote();
+        });
+
+    </script>
+}

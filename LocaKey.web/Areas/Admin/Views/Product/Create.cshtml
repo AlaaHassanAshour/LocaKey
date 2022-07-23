@@ -5,7 +5,7 @@
     <div class="card-header">
         <div class="card-title">
             <h3 class="card-label">
-            اضافة منتج
+                اضافة منتج
                 <small>ادارة اضافة منتج</small>
             </h3>
         </div>
@@ -27,7 +27,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="imege" class="control-label"></label>
-                        <input  type="file" asp-for="imege" class="form-control" />
+                        <input type="file" asp-for="imege" class="form-control" />
                         <span asp-validation-for="imege" class="text-danger"></span>
                     </div>
                 </div>
@@ -59,22 +59,22 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="description_ar" class="control-label"></label>
-                         <textarea id="summernote" asp-for="description_ar" class="form-control"></textarea>
+                        <textarea  asp-for="description_ar" class="form-control summernote"></textarea>
                         <span asp-validation-for="description_ar" class="text-danger"></span>
-                    
+
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="description_en" class="control-label"></label>
-                        <textarea id="summernote" asp-for="description_en" class="form-control"></textarea>
-                       <span asp-validation-for="description_en" class="text-danger"></span>
+                        <textarea  asp-for="description_en" class="form-control summernote"></textarea>
+                        <span asp-validation-for="description_en" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="description_fr" class="control-label"></label>
-                         <textarea id="summernote" asp-for="description_fr" class="form-control"></textarea>
+                        <textarea  asp-for="description_fr" class="form-control summernote"></textarea>
                         <span asp-validation-for="description_fr" class="text-danger"></span>
                     </div>
                 </div>
@@ -97,31 +97,43 @@
 
             </div>
             <div class="row">
-    
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="price_fr" class="control-label"></label>
-                    <input asp-for="price_fr" class="form-control" />
-                    <span asp-validation-for="price_fr" class="text-danger"></span>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="price_fr" class="control-label"></label>
+                        <input asp-for="price_fr" class="form-control" />
+                        <span asp-validation-for="price_fr" class="text-danger"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="count" class="control-label"></label>
-                    <input asp-for="count" class="form-control" />
-                    <span asp-validation-for="count" class="text-danger"></span>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="count" class="control-label"></label>
+                        <input asp-for="count" class="form-control" />
+                        <span asp-validation-for="count" class="text-danger"></span>
+                    </div>
                 </div>
-            </div>
             </div>
             <br />
             <div class="form-group">
                 <input type="submit" value="حفظ" class="btn btn-primary" />
             </div>
-            
-    </form>
-        </div>
-    </div>
 
-    <div>
-        <a asp-action="Index">للخلف</a>
+        </form>
     </div>
+</div>
+
+<div>
+    <a asp-action="Index">للخلف</a>
+</div>
+
+@section Scripts {
+    <script src="js/pages/crud/forms/editors/summernote.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $(document).ready(function () {
+            $('.summernote').summernote();
+        });
+
+    </script>
+}

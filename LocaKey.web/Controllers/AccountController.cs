@@ -1,6 +1,7 @@
 ﻿using LocaKey.Core.DTO;
 using LocaKey.Core.ViweModel;
 using LocaKey.Data.Entity;
+using LocaKey.web.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,14 +13,15 @@ namespace LocaKey.web.Controllers
 
         private readonly SignInManager<User> signInManager;
         private readonly UserManager<User> userManager;
+        private readonly ApplicationDbContext _context;
 
-        public string ReturnUrl { get; set; }
 
-        public AccountController(SignInManager<User> signInManager, UserManager<User> userManager)
+
+        public AccountController(SignInManager<User> signInManager, UserManager<User> userManager, ApplicationDbContext context)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
-
+            _context = context;
         }
         public IActionResult Index()
         {
@@ -29,7 +31,7 @@ namespace LocaKey.web.Controllers
         [AllowAnonymous]
         public IActionResult Login()
         {
-          
+
             return View();
         }
         [HttpPost]
@@ -41,7 +43,6 @@ namespace LocaKey.web.Controllers
             {
                 return View(dto);
             }
-            returnUrl = returnUrl ?? Url.Content("~/");
 
             var result = await signInManager.PasswordSignInAsync(dto.Username, dto.Password,
                    //Remember Me
@@ -52,7 +53,7 @@ namespace LocaKey.web.Controllers
             {
                 if (!string.IsNullOrEmpty(returnUrl))
                 {
-                   
+
                     return LocalRedirect(returnUrl);
                 }
                 return RedirectToAction("Index", "Home");
@@ -62,5 +63,43 @@ namespace LocaKey.web.Controllers
                 return BadRequest();
             }
         }
+
+        [AllowAnonymous]
+        public IActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterDTO dto)
+        {
+            if (_context.Users.Any(x => x.Email == dto.Email || x.PhoneNumber == dto.phone))
+            {
+                return NotFound();
+            }
+            var user = new LocaKey.Data.Entity.User()
+            {
+                fullName = dto.fullname,
+                UserName = dto.fullname,
+                Email = dto.Email,
+                PhoneNumber = dto.phone
+            };
+
+            var result = await userManager.CreateAsync(user, dto.Password);
+            if (result.Succeeded)
+            {
+                await signInManager.SignInAsync(user, false);
+                // await _userManager.AddToRoleAsync(user, "Admin");
+                var clint = new Client()
+                {
+                    country = dto.country,
+                    UserId = user.Id,
+                };
+                _context.Add(clint);
+                _context.SaveChanges();
+                return Redirect("/home/index");
+            }
+            return NotFound();
+        }
+
     }
 }

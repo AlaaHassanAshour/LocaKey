@@ -4,24 +4,23 @@
     ViewData["Title"] = "Index";
 }
 
-    <form method="get" asp-action="Index">
-        <div class="row">
+<form method="get" asp-action="Index">
+    <div class="row">
         <div class="col-md-2">
-            
-            <input  type="number" name="count" value="@ViewBag.count" placeholder="اختر الكمية" class="form-control" />
-        </div>  
-    <div class="col-md-5">
 
-        <select name="categoryId" asp-items="@ViewBag.categoryId" class="form-control">
-            <option selected="selected" value="">--كل المنتجات--</option>
-        </select>
+            <input type="number" name="count" value="@ViewBag.count" placeholder="اختر الكمية" class="form-control" />
+        </div>
+        <div class="col-md-5">
+
+            <select name="categoryId" asp-items="@ViewBag.categoryId" class="form-control">
+                <option selected="selected" value="">--كل المنتجات--</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <input class="btn btn-bg-primary" type="submit" value="Go" />
+        </div>
     </div>
-   
-    <div class="col-md-2">
-        <input class="btn btn-bg-primary" type="submit" value="Go" />
-    </div>
-   </div>
-    </form>
+</form>
 
 <br />
 <br />
@@ -32,7 +31,7 @@
             <div class="card-title">
                 <h3 class="card-label">
                     المنتجات
-                  <small>ادارة المنتجات</small>
+                    <small>ادارة المنتجات</small>
                 </h3>
             </div>
             <div class="card-toolbar">
@@ -41,20 +40,11 @@
                 </a>
             </div>
         </div>
-
-
-
-
-
         <div class="card-body">
-
-
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Id)
-                        </th>
+                        
                         <th>
                             التصنيف
                         </th>
@@ -98,9 +88,7 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Id)
-                            </td>
+                     
                             <td>
                                 @Html.DisplayFor(modelItem => item.Category.nameAr)
                             </td>
@@ -114,13 +102,13 @@
                                 @Html.DisplayFor(modelItem => item.name_fr)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.description_ar)
+                                @Html.Raw(item.description_ar)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.description_en)
+                                @Html.Raw(item.description_en)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.description_fr)
+                                @Html.Raw(item.description_fr)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.price_ar)
@@ -140,7 +128,7 @@
                             <td>
                                 <a asp-action="Edit" asp-route-id="@item.Id" type="submit" class="btn btn-warning editDetails" data-id="@item.Id" data-toggle="modal">
                                     <i class="flaticon flaticon-edit"></i>
-                                    تعديل 
+                                    تعديل
                                 </a> |
                                 <a asp-action="Delete" asp-route-id="@item.Id" type="submit" class="btn btn-danger deletemodal" data-id="@item.Id" data-toggle="modal">
                                     <i class="flaticon flaticon-delete"></i>
@@ -175,20 +163,3 @@ else
     </div>
 
 }
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog-centered modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-success text-light justify-content-center">
-                <h5 class="modal-title"></h5>
-            </div>
-            <div class="modal-body justify-content-center" id="myModalContent">
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" style="width:20%" data-dismiss="modal">
-                    Close
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-

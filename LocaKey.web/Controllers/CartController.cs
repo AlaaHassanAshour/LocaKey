@@ -29,14 +29,19 @@ namespace LocaKey.web.Controllers
         {
             var claimIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            var product = _context.Products.SingleOrDefault(m => m.Id == id);
-
             var cart = new LocaKey.Data.Entity.CartCookies();
-
-            cart.totalprice = 0;
-            //cart.total= product.
-            //_context.CartCookies.Add(cart);
-            _context.SaveChanges(); return View();
+            cart.UserId = claim.Value;
+            cart.ProductId = id;
+            var product = _context.Products.Where(m => m.Id == id&& !m.IsDelete).ToList();
+            cart.total= product.Count;
+            foreach (var item in product)
+            {
+                cart.totalprice += item.count * item.price_ar;
+            }       
+            cart.PickUpTime = DateTime.Now;
+            _context.CartCookies.Add(cart);
+            _context.SaveChanges(); 
+            return View();
         }
     }
 }

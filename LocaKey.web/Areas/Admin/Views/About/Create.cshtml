@@ -5,7 +5,7 @@
     <div class="card-header">
         <div class="card-title">
             <h3 class="About-label">
-               اضافة
+                اضافة
                 <small>ادارة الاعدادات</small>
             </h3>
         </div>
@@ -58,7 +58,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="logo" class="control-label"></label>
-                        <input type="file" asp-for="logo" class="form-control" />
+                        <input type="file" asp-for="logo" class="form-control summernote" />
                         <span asp-validation-for="logo" class="text-danger"></span>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="phone" class="control-label"></label>
-                        <input   asp-for="phone" class="form-control" />
+                        <input asp-for="phone" class="form-control" />
                         <span asp-validation-for="phone" class="text-danger"></span>
                     </div>
                 </div>
@@ -89,3 +89,16 @@
 <div>
     <a asp-action="Index">الرجوع الي الخلف</a>
 </div>
+
+
+@section Scripts {
+    <script src="js/pages/crud/forms/editors/summernote.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $(document).ready(function() {
+            $('.summernote').summernote();
+        });
+
+    </script>
+}

@@ -20,7 +20,7 @@
             <div class="form-group">
                 <input type="hidden" asp-for="Id" />
                 <label asp-for="name_ar" class="control-label"></label>
-                <input asp-for="name_ar" class="form-control" />
+                <input asp-for="name_ar" class="form-control " />
                 <span asp-validation-for="name_ar" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -35,17 +35,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="description_ar" class="control-label"></label>
-                <input asp-for="description_ar" class="form-control" />
+                <textarea asp-for="description_ar" class="form-control summernote"> </textarea>
                 <span asp-validation-for="description_ar" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="description_en" class="control-label"></label>
-                <input asp-for="description_en" class="form-control" />
+                <textarea asp-for="description_en" class="form-control" > </textarea>
                 <span asp-validation-for="description_en" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="description_fr" class="control-label"></label>
-                <input asp-for="description_fr" class="form-control" />
+                <textarea asp-for="description_fr" class="form-control"> </textarea>
                 <span asp-validation-for="description_fr" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -74,7 +74,7 @@
                 <input asp-for="imege" class="form-control" />
                 <span asp-validation-for="imege" class="text-danger"></span>
             </div>
-             <div class="form-group">
+            <div class="form-group">
                 <label asp-for="count" class="control-label"></label>
                 <input asp-for="count" class="form-control" />
                 <span asp-validation-for="count" class="text-danger"></span>
@@ -90,3 +90,12 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+@section Scripts {
+    <script src="js/pages/crud/forms/editors/summernote.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.summernote').summernote();
+        });
+
+    </script>
+}

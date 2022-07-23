@@ -23,5 +23,6 @@ namespace LocaKey.Data.Entity
         public string CreatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public string? UpdatedBy { get; set; }
+        public List<Client> Clients { get; set; }
     }
 }

@@ -23,11 +23,8 @@ namespace LocaKey.Core.DTO
 
         public DiscountType discountType { get; set; }
         [Display(Name = "الكمية المستخدمة")]
-
         public int countUse { get; set; }
         [Display(Name = "حالة النشاط")]
-
-
         public bool De_activation { get; set; }
        
     }
