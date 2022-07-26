@@ -25,7 +25,7 @@ namespace LocaKey.Service.Service.CartCookiest
                 },
                 Id = x.Id,
               
-                ProductId = x.ProductId,
+            //    Product = x.ProductId,
               
                 total = x.total,
               
@@ -43,7 +43,7 @@ namespace LocaKey.Service.Service.CartCookiest
                     Phone = x.User.PhoneNumber,
                 },
                 Id = x.Id,
-                ProductId = x.ProductId,
+                //ProductId = x.ProductId,
                 total = x.total,
             }).ToList();
 

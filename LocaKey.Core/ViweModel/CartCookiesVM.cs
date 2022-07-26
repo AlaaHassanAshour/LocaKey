@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocaKey.Data.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace LocaKey.Core.ViweModel
         [Display(Name = "الكمية المتاحة ")]
         public int availableQuantity { get; set; }
         [Display(Name = "المنتج ")]
-        public int ProductId { get; set; }
+        public Product Product { get; set; }
         [Display(Name = "المشتري")]
         public UserVM User { get; set; }
 

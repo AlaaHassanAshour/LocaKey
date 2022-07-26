@@ -1,0 +1,78 @@
+﻿@model IEnumerable<LocaKey.Core.ViweModel.CartCookiesVM>
+<section id="cart">
+    <div class="container pb-5 mb-2">
+        <!-- Cart Item-->
+        <div class="section-title text-left">
+            <i class="fa-solid fa-house"></i>
+            Home >
+            <a href="#" style="color: #F57A38;">Cart Shopping</a>
+            <h1>Cart Shopping</h1>
+            <p></p>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="cart-item d-md-flex justify-content-between">
+                <span class="remove-item">
+                    <i class="fa fa-times"></i>
+                </span>
+                <div class="px-2 my-2">
+                    <a class="cart-item-product" href="#">
+                        <div class="cart-item-product-thumb">
+                            <img src="~/Images/@item.Product.imege" alt="Product">
+                        </div>
+                        <div class="cart-item-product-info">
+                            <h4 class="cart-item-product-title">@item.Product.name_ar</h4>
+                            <!-- <div class="product-price" price-data="9.99" item-data="4">
+                              9.99$<span class="product-price-cents"></span>
+                            </div> -->
+                            <span class="text-primary w46 product-price product-checkout-total-amount" price-data="9.99" item-data="4">@item.Product.price_ar</span>
+                            <span class="text-decoration-line-through w45">@item.Product.price_ar</span>
+                        </div>
+                        <!-- <div class="product-checkout">
+
+                          <div class="product-checkout-total">
+                            <i class="fa fa-usd"></i>
+                            <div class="product-checkout-total-amount">
+                              0.00
+                            </div>
+                          </div>
+                        </div> -->
+                    </a>
+                </div>
+                <div class="col-md-3 product-quantity">
+                    <!-- <label for="product-quantity-input" class="product-quantity-label"></label> -->
+                    <a asp-action="Minus" asp-controller="Cart" asp-route-cartId="@item.Id">
+                        <div class="product-quantity-subtract">
+                            <i class="bi bi-dash-circle text-primary"></i>
+                        </div>
+                    </a>
+                    <div>
+                        <input type="text" id="product-quantity-input" placeholder="@item.total" value="@item.total" />
+                    </div>
+                    <a asp-action="Plus" asp-controller="Cart" asp-route-cartId="@item.Id">
+                        <div class="product-quantity-add">
+
+                            <i class="bi bi-plus-circle text-primary"></i>
+                        </div>
+                    </a>
+                    <br>
+
+
+                </div>
+                <div class="px-3 my-3 text-center">
+                     <a  asp-action="Remove" asp-route-cartId="@item.Id"> 
+                        <span class="text-xl font-weight-medium">
+                            <i class="bi bi-trash mb-3"></i>Remove 
+                        </span>
+                    </a>
+                    <br>
+                    <a>
+                        <span class="text-xl font-weight-medium  mt-3">
+                            <i class="bi bi-pencil"></i>Save for
+                        </span>
+                    </a>
+                </div>
+            <br>
+            </div>
+        }
+</section>

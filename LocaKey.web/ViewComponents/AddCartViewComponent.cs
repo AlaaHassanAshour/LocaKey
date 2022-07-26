@@ -21,15 +21,17 @@ namespace LocaKey.web.Component
             cart.UserId = claim.Value;
             cart.ProductId = id;
             cart.PickUpTime = DateTime.Now;
-      
+            cart.totalprice = 0;
+            cart.total = 1;
+            float total = 0;
             var carts = await _context.CartCookies.Include(x => x.Product).Where(m => m.UserId == claim.Value && !m.IsDelete).ToListAsync();
             foreach (var item in carts)
             {
-                cart.total = item.Product.count;
-                cart.totalprice += item.total * item.Product.price_ar;
+                total += item.totalprice;
             }
-            ViewBag.totalprice = cart.totalprice;
+            ViewBag.totalprice = total;
             _context.CartCookies.Add(cart);
+            cart.totalprice = cart.Product.price_ar * cart.total;
             _context.SaveChanges();
             return View(carts);
         }

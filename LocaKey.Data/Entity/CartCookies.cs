@@ -9,7 +9,7 @@ namespace LocaKey.Data.Entity
 {
     public class CartCookies : BaseEntity
     {
-        public float total { get; set; }
+        public int total { get; set; }
         public float totalprice { get; set; }
         public DateTime PickUpTime { get; set; }
         public int ProductId { get; set; }
