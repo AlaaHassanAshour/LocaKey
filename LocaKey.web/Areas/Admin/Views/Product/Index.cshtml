@@ -37,14 +37,14 @@
             <div class="card-toolbar">
                 <a asp-action="Create" class="btn btn-success showcreate" data-toggle="modal">
                     <i class="flaticon2-cube"></i> اضافة منتج
-                </a>
+                </a>        
             </div>
         </div>
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        
+
                         <th>
                             التصنيف
                         </th>
@@ -52,34 +52,19 @@
                             @Html.DisplayNameFor(model => model.name_ar)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.name_en)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.name_fr)
-                        </th>
-                        <th>
                             @Html.DisplayNameFor(model => model.description_ar)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.description_en)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.description_fr)
-                        </th>
-                        <th>
                             @Html.DisplayNameFor(model => model.price_ar)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.price_en)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.price_fr)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.imege)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.count)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.type)
                         </th>
                         <th></th>
                     </tr>
@@ -88,7 +73,7 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                     
+
                             <td>
                                 @Html.DisplayFor(modelItem => item.Category.nameAr)
                             </td>
@@ -96,28 +81,11 @@
                                 @Html.DisplayFor(modelItem => item.name_ar)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.name_en)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.name_fr)
-                            </td>
-                            <td>
                                 @Html.Raw(item.description_ar)
                             </td>
-                            <td>
-                                @Html.Raw(item.description_en)
-                            </td>
-                            <td>
-                                @Html.Raw(item.description_fr)
-                            </td>
+
                             <td>
                                 @Html.DisplayFor(modelItem => item.price_ar)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.price_en)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.price_fr)
                             </td>
                             <td>
                                 <img src="~/Images/@item.imege" width="150" />
@@ -126,8 +94,11 @@
                                 @Html.DisplayFor(modelItem => item.count)
                             </td>
                             <td>
+                                @Html.DisplayFor(modelItem => item.type)
+                            </td>
+                            <td>
                                 <a asp-action="Edit" asp-route-id="@item.Id" type="submit" class="btn btn-warning editDetails" data-id="@item.Id" data-toggle="modal">
-                                    <i class="flaticon flaticon-edit"></i>
+                                    <i class="flaticon flaticon-delete"></i>
                                     تعديل
                                 </a> |
                                 <a asp-action="Delete" asp-route-id="@item.Id" type="submit" class="btn btn-danger deletemodal" data-id="@item.Id" data-toggle="modal">
@@ -137,9 +108,6 @@
                             </td>
                         </tr>
                     }
-
-
-
                 </tbody>
             </table>
         </div>
@@ -156,9 +124,7 @@ else
     </div>
     <hr />
     <hr />
-
     <div class="alert alert-warning">
-
         No Data !!
     </div>
 

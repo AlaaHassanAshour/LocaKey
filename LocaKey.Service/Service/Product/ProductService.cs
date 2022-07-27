@@ -26,37 +26,6 @@ namespace LocaKey.Service.Service.Product
                 Category = new CategoryVM()
                 {
                     nameAr = x.Category.nameAr,
-                    nameEn= x.Category.nameEn,
-                    nameFr= x.Category.nameFr
-                },
-                description_ar = x.description_ar,
-                description_en = x.description_en,
-                description_fr = x.description_fr,
-                Id = x.Id,
-                imege = x.imege,
-                name_ar = x.name_ar,
-                name_en = x.name_en,
-                name_fr = x.name_fr,
-                price_ar = x.price_ar,
-                price_en = x.price_en,
-                price_fr = x.price_fr,
-
-            }
-            ).FirstOrDefault(x => x.Id == id);
-            return product;
-        }
-        public List<ProductVM> GetAll(int? categoryId , int? count)
-        {
-            if (count==null)
-            {
-                count = 1000;
-            }
-            var products = _context.Products.Include(x => x.Category).Where(x => x.IsDelete.Equals(false) && (x.CategoryId ==categoryId || categoryId==null)
-                && (x.count<=count )).OrderByDescending(x => x.Id).Select(x => new ProductVM()
-            {
-                Category = new CategoryVM()
-                {
-                    nameAr = x.Category.nameAr,
                     nameEn = x.Category.nameEn,
                     nameFr = x.Category.nameFr
                 },
@@ -72,7 +41,41 @@ namespace LocaKey.Service.Service.Product
                 price_en = x.price_en,
                 price_fr = x.price_fr,
                 count = x.count,
+                type = (ProductVM.Type)x.type,
+
             }
+            ).FirstOrDefault(x => x.Id == id);
+            return product;
+        }
+        public List<ProductVM> GetAll(int? categoryId, int? count)
+        {
+            if (count == null)
+            {
+                count = 1000;
+            }
+            var products = _context.Products.Include(x => x.Category).Where(x => x.IsDelete.Equals(false) && (x.CategoryId == categoryId || categoryId == null)
+                && (x.count <= count)).OrderByDescending(x => x.Id).Select(x => new ProductVM()
+                {
+                    Category = new CategoryVM()
+                    {
+                        nameAr = x.Category.nameAr,
+                        nameEn = x.Category.nameEn,
+                        nameFr = x.Category.nameFr
+                    },
+                    description_ar = x.description_ar,
+                    description_en = x.description_en,
+                    description_fr = x.description_fr,
+                    Id = x.Id,
+                    imege = x.imege,
+                    name_ar = x.name_ar,
+                    name_en = x.name_en,
+                    name_fr = x.name_fr,
+                    price_ar = x.price_ar,
+                    price_en = x.price_en,
+                    price_fr = x.price_fr,
+                    count = x.count,
+                    type = (ProductVM.Type)x.type,
+                }
             ).ToList();
             return products;
         }
@@ -92,6 +95,7 @@ namespace LocaKey.Service.Service.Product
                 name_fr = dto.name_fr,
                 imege = dto.imege,
                 count = dto.count,
+                type= (Data.Entity.Product.Type)dto.type
             };
             _context.Add(prduct);
             _context.SaveChanges();
@@ -117,7 +121,8 @@ namespace LocaKey.Service.Service.Product
             prduct.description_fr = dto.description_fr;
             prduct.description_en = dto.description_en;
             prduct.imege = dto.imege;
-
+            prduct.count = dto.count;
+            prduct.type = (Data.Entity.Product.Type)dto.type;
             _context.Products.Update(prduct);
             _context.SaveChanges();
         }

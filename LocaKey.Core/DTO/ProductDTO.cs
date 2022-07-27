@@ -49,6 +49,9 @@ namespace LocaKey.Core.DTO
         [Display(Name = "الاسم الصورة")]
 
         public string imege { get; set; }
+        public enum Type { normal = 0, offer = 1, popular = 2 }
+        public Type type { get; set; }
+
         [Display(Name = "التصنيف")]
         public int CategoryId { get; set; }
 

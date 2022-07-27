@@ -34,11 +34,6 @@
                             @Html.DisplayNameFor(model => model.descriptionAr)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.descriptionEn)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.descriptionFr)
-                        </th>
                         <th>
                             @Html.DisplayNameFor(model => model.phone)
                         </th>
@@ -62,13 +57,8 @@
                                 @Html.DisplayFor(modelItem => item.email)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.descriptionAr)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.descriptionEn)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.descriptionFr)
+                                @Html.Raw(item.descriptionAr)
+
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.phone)

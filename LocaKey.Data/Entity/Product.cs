@@ -30,11 +30,16 @@ namespace LocaKey.Data.Entity
         [Required]
         public string imege { get; set; }
         public int  count{ get; set; }
+        public enum Type { normal= 0, offer = 1 , popular=2}
+        public Type type { get; set; }
+
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
         public int? CouponsId { get; set; }
         public Coupons Coupons { get; set; }
+
+
 
     }
 }

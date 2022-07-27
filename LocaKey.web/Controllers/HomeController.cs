@@ -18,7 +18,7 @@ namespace LocaKey.web.Controllers
             HomeProductVM homeProductVM = new HomeProductVM()
             {
                 category = _context.Categorys.Where(x => x.IsDelete.Equals(false)).ToList(),
-                product = _context.Products.Where(x => x.IsDelete.Equals(false)).ToList()
+                products = _context.Products.Where(x => x.IsDelete.Equals(false)).ToList()
             };
             return View(homeProductVM);
         }
@@ -46,7 +46,9 @@ namespace LocaKey.web.Controllers
         public IActionResult Detailes(int id)
         {
             var detailes = _context.Products.SingleOrDefault(x => x.Id == id);
-            return View(detailes);
+            HomeProductVM homeProductVM = new HomeProductVM();
+            homeProductVM.product = detailes;
+            return View(homeProductVM);
         }
     }
 }

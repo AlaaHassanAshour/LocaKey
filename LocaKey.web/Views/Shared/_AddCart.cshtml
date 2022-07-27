@@ -1,16 +1,16 @@
-﻿@model IEnumerable<LocaKey.Data.Entity.CartCookies>
-@foreach (var item in Model)
+﻿@model LocaKey.Core.ViweModel.HomeProductVM
+@foreach (var item in Model.products)
 {
     <div class="product">
         <div class="row">
             <div class="col-md-3">
-                <img src="~/Images/@item.Product.imege" class="imgsize" alt="Product">
+                <img src="~/Images/@item.imege" class="imgsize" alt="Product">
             </div>
             <div class="col-md-8">
                 <div class="cart-item-product-info">
-                    <h4 class="cart-item-product-title">@item.Product.name_ar</h4>
+                    <h4 class="cart-item-product-title">@item.name_ar</h4>
 
-                    <span class="text-primary w46 product-price product-checkout-total-amount" price-data="9.99" item-data="4"> @item.Product.price_ar</span>
+                    <span class="text-primary w46 product-price product-checkout-total-amount" price-data="9.99" item-data="4"> @item.price_ar</span>
 
                 </div>
 
@@ -29,8 +29,8 @@
         </div>
     </div>
 </div>
-<a  asp-controller="Home" asp-action="Index">
-<button class="addcart countinueshoping">countinue shoping</button>
+<a asp-controller="Home" asp-action="Index">
+    <button class="addcart countinueshoping">countinue shoping</button>
 </a>
 <a asp-action="CartShopping" asp-controller="Cart">
     <button class="addcart countinueshoping viewcart">Viw cart</button>

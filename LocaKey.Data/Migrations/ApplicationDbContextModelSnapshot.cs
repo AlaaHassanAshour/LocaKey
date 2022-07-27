@@ -540,6 +540,9 @@ namespace LocaKey.Data.Migrations
                     b.Property<float>("price_fr")
                         .HasColumnType("real");
 
+                    b.Property<int>("type")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");

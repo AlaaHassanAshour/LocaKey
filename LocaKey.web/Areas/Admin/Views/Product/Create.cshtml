@@ -80,31 +80,31 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="price_ar" class="control-label"></label>
                         <input asp-for="price_ar" class="form-control" />
                         <span asp-validation-for="price_ar" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="price_en" class="control-label"></label>
                         <input asp-for="price_en" class="form-control" />
                         <span asp-validation-for="price_en" class="text-danger"></span>
                     </div>
                 </div>
-
-            </div>
-            <div class="row">
-
-                <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="price_fr" class="control-label"></label>
                         <input asp-for="price_fr" class="form-control" />
                         <span asp-validation-for="price_fr" class="text-danger"></span>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+
+              
                 <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="count" class="control-label"></label>
@@ -113,6 +113,13 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="type" class="control-label"></label>
+                        <select asp-for="type" asp-items="@new  SelectList(Enum.GetNames(typeof(LocaKey.Data.Entity.Product.Type)))" class="form-control">  </select>
+                        <span asp-validation-for="type" class="text-danger"></span>
+                    </div>
+                </div>
             <br />
             <div class="form-group">
                 <input type="submit" value="حفظ" class="btn btn-primary" />

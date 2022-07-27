@@ -28,8 +28,9 @@ namespace LocaKey.web.Controllers
 
             return View();
         }
-        public async Task<IActionResult> AddCart(int id)
+        public IActionResult AddCart(int id)
         {
+
             var claimIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
             var cart = new LocaKey.Data.Entity.CartCookies();
@@ -39,7 +40,12 @@ namespace LocaKey.web.Controllers
             cart.totalprice = 0;
             cart.total = 1;
             float total = 0;
-            var carts = await _context.CartCookies.Include(x => x.Product).Where(m => m.UserId == claim.Value && !m.IsDelete).ToListAsync();
+            var carts = _context.CartCookies.Include(x => x.Product).Where(m => m.UserId == claim.Value && !m.IsDelete).ToList();
+            HomeProductVM homeProductVM = new HomeProductVM();
+            foreach (var item in carts)
+            {
+                homeProductVM.products.Add(item.Product);
+            }
             foreach (var item in carts)
             {
                 total += item.totalprice;
@@ -48,7 +54,7 @@ namespace LocaKey.web.Controllers
             _context.CartCookies.Add(cart);
             cart.totalprice = cart.Product.price_ar * cart.total;
             _context.SaveChanges();
-            return PartialView("_AddCart", carts);
+            return PartialView("_AddCart", homeProductVM);
         }
         [HttpGet]
         public IActionResult CartShopping()

@@ -10,7 +10,8 @@ namespace LocaKey.Core.ViweModel
     public class HomeProductVM
     {
         public List<Category> category{ get; set; }
-        public List<Product> product{ get; set; }
+        public List<Product> products{ get; set; }
+        public Product product { get; set; }
 
     }
 }

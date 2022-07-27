@@ -1,5 +1,4 @@
 ﻿@model LocaKey.Core.ViweModel.HomeProductVM
-
 <section id="lading">
     <div class="container mt-5">
         <div class="row">
@@ -56,40 +55,29 @@
             <div class="col-lg-4 radius">
                 <div class="container">
                     <div class="row ">
-                        <div class="col-lg-12 col-md-6">
-                            <div class="card mb-3 radius border-0 bg-secondary" style="max-width: 540px;">
-                                <div class="row g-0">
-                                    <div class="col-md-4 my-auto">
-                                        <img src="~/asset/img/thinkfree-office-microsoft-office-electronics-png-favpng-SzH389iSAVJawvw5D65fyjEeb.png"
+
+                        @foreach (var item in Model.products.Where(x => x.type == LocaKey.Data.Entity.Product.Type.offer))
+                        {
+                            <div class="col-lg-12 col-md-6">
+                                <div class="card mb-3 radius border-0 bg-secondary" style="max-width: 540px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4 my-auto">
+                                            <img src="~/Images/@item.imege"
                                              class="img-fluid rounded-start" alt="...">
-                                    </div>
-                                    <div class="col-md-8 py-4">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Lighting</h5>
-                                            <p class="card-text">Sale off 10% only today.</p>
-                                            <p class="card-text"><small class="text-primary">Shop now</small></p>
+                                        </div>
+                                        <div class="col-md-8 py-4">
+                                            <div class="card-body">
+                                                <h5 class="card-title">@item.name_ar</h5>
+                                                <p class="card-text">Sale off 10% only today.</p>
+                                                <a asp-action="Detailes" asp-controller="Home" asp-route-id="@item.Id">
+                                                    <p class="card-text"><small class="text-primary">Shop now</small></p>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12 col-md-6">
-                            <div class="card mb-3 radius border-0 bg-secondary" style="max-width: 540px;">
-                                <div class="row g-0">
-                                    <div class="col-md-4 my-auto">
-                                        <img src="~/asset/img/thinkfree-office-microsoft-office-electronics-png-favpng-SzH389iSAVJawvw5D65fyjEeb.png"
-                                             class="img-fluid rounded-start" alt="...">
-                                    </div>
-                                    <div class="col-md-8 py-4">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Lighting</h5>
-                                            <p class="card-text">Sale off 10% only today.</p>
-                                            <p class="card-text"><small class="text-primary">Shop now</small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -152,7 +140,7 @@
     </div>
     <div class="container my-5">
         <div class="row">
-            @foreach (var item in Model.product)
+            @foreach (var item in Model.products)
             {
                 <div class="filterDiv cars col-lg-3 col-md-6">
                     <div class="card border-0" style="width: 18rem;border-radius: 1rem;">
@@ -165,7 +153,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <p class="card-text text-center">
-                                    <a asp-action="Detailes" asp-route-Id="@item.Id">
+                                    <a asp-action="Detailes" asp-route-Id="@item.Id" id="UpdateContent">
                                         <button> VIEW DETAILS</button>
                                     </a>
                                     <span class="text-primary w46"> @item.price_ar</span> <span class="text-decoration-line-through w45">49.99$</span>
@@ -176,12 +164,9 @@
                     </div>
                 </div>
             }
-
         </div>
     </div>
-
 </section>
-
 <!--prouduct-->
 <section id="prouduct">
     <div class="container">
@@ -195,124 +180,33 @@
     <div class="container my-5">
         <div class="row">
             <div class="owl-carousel owl-theme " style="direction:ltr;">
-                <div class="item">
-                    <div class="card border-0 " style="width: 18rem;border-radius: 1rem;">
-                        <div style="border-radius:2rem 2rem 0rem 0rem ; ">
-                            <img src="~/asset/img/blog1.png" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text text-center">Office 2021 Professional Plus License</p>
-                            <div class="row">
-                                <div class="col-md-12">
 
-                                    <p class="card-text text-center">
-                                        <button>VIEW DETAILS</button>
-                                        <span class="text-primary w46"> 9.99$</span> <span class="text-decoration-line-through w45">49.99$</span>
-                                    </p>
-                                </div>
+                @foreach (var item in Model.products.Where(x => x.type == LocaKey.Data.Entity.Product.Type.popular))
+                {
+                    <div class="item">
+                        <div class="card border-0 " style="width: 18rem;border-radius: 1rem;">
+                            <div style="border-radius:2rem 2rem 0rem 0rem ; ">
+                                <img src="~/Images/@item.imege" class="card-img-top" alt="...">
                             </div>
+                            <div class="card-body">
+                                <p class="card-text text-center">@item.name_ar</p>
+                                <div class="row">
+                                    <div class="col-md-12">
 
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card border-0 " style="width: 18rem;border-radius: 1rem;">
-                        <div style="border-radius:2rem 2rem 0rem 0rem ; ">
-                            <img src="~/asset/img/blog2.png" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text text-center">Office 2021 Professional Plus License</p>
-                            <div class="row">
-                                <div class="col-md-12">
-
-                                    <p class="card-text text-center">
-                                        <button>VIEW DETAILS</button>
-                                        <span class="text-primary w46"> 9.99$</span> <span class="text-decoration-line-through w45">49.99$</span>
-                                    </p>
+                                        <p class="card-text text-center">
+                                            <a asp-action="Detailes" asp-controller="Home" asp-route-id="@item.Id">
+                                                <button>VIEW DETAILS</button>
+                                            </a>
+                                            <span class="text-primary w46"> @item.price_ar</span> <span class="text-decoration-line-through w45">49.99$</span>
+                                        </p>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="card border-0 " style="width: 18rem;border-radius: 1rem;">
-                        <div style="border-radius:2rem 2rem 0rem 0rem ; ">
-                            <img src="~/asset/img/blog3.png" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text text-center">Office 2021 Professional Plus License</p>
-                            <div class="row">
-                                <div class="col-md-12">
-
-                                    <p class="card-text text-center">
-                                        <button>VIEW DETAILS</button>
-                                        <span class="text-primary w46"> 9.99$</span> <span class="text-decoration-line-through w45">49.99$</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card border-0 " style="width: 18rem;border-radius: 1rem;">
-                        <div style="border-radius:2rem 2rem 0rem 0rem ; ">
-                            <img src="~/asset/img/blog4.png" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text text-center">Office 2021 Professional Plus License</p>
-                            <div class="row">
-                                <div class="col-md-12">
-
-                                    <p class="card-text text-center">
-                                        <button>VIEW DETAILS</button>
-                                        <span class="text-primary w46"> 9.99$</span> <span class="text-decoration-line-through w45">49.99$</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card border-0 " style="width: 18rem;border-radius: 1rem;">
-                        <div style="border-radius:2rem 2rem 0rem 0rem ; ">
-                            <img src="~/asset/img/blog3.png" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text text-center">Office 2021 Professional Plus License</p>
-                            <div class="row">
-                                <div class="col-md-12">
-
-                                    <p class="card-text text-center">
-                                        <button>VIEW DETAILS</button>
-                                        <span class="text-primary w46"> 9.99$</span> <span class="text-decoration-line-through w45">49.99$</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card border-0 " style="width: 18rem;border-radius: 1rem;">
-                        <div style="border-radius:2rem 2rem 0rem 0rem ; ">
-                            <img src="~/asset/img/blog2.png" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text text-center">Office 2021 Professional Plus License</p>
-                            <div class="row">
-                                <div class="col-md-12">
-
-                                    <p class="card-text text-center">
-                                        <button>VIEW DETAILS</button>
-                                        <span class="text-primary w46"> 9.99$</span> <span class="text-decoration-line-through w45">49.99$</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
-
-
 </section>
 
 <!--Partners-->
@@ -342,8 +236,20 @@
     </div>
 </section>
 @section Scripts{
-
-    <script>
+      <script>
+        $("#UpdateContent").click(function() {
+            $.ajax({
+                method: 'post',
+                url: 'Cart/AddCart/',
+                
+                success: function(response) {
+                    $('#info').empty();
+                    $('#info').html(result);
+                }
+            })
+        })
+    </script>
+    @*<script>
         $(document).ready(
             function($) {
                 $("#menu-filter li").click(
@@ -364,6 +270,6 @@
             }
 
         );
-    </script>
+    </script>*@
 
 }
